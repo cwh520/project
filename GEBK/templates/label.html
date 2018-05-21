@@ -1,0 +1,271 @@
+{% extends "Parent_template.html" %}
+
+{% block title %}标签管理{% endblock %}
+{% block Navigation %}标签管理{% endblock %}
+
+{% block css %}{% endblock %}
+
+
+
+{% block main %}
+<div class="row-fluid sortable ui-sortable">
+	<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2><i class="halflings-icon user"></i><span class="break"></span><span id="Add" style="cursor:pointer">添加标签</span></h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>所属文章</th>
+                                    <th>标签</th>
+                                    <th>状态</th>
+                                    <th>时间</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加标签</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="control-group success">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                            </div>
+                        </div>
+                       <div class="control-group success">
+                            <label class="control-label">所属文章:</label>
+                            <div class="controls">
+                                  <select id="article">
+
+								  </select>
+                            </div>
+                        </div>
+                        <div class="control-group success">
+                            <label class="control-label">标签:</label>
+                            <div class="controls">
+                               <input class="input-xlarge focused" id="label" name="label" type="text" value="" placeholder="在此输入标签...">
+                            </div>
+                        </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" id="add" class="btn btn-primary">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+{% endblock %}
+
+
+
+{% block script %}
+    <script>
+$(document).ready(function() {
+    $.ajax({
+            url:"{{ url_for("getlabel") }}",
+            type:"POST",
+            data:null,
+            success:function (rep) {
+              console.log(rep)
+              var data = rep["data"]
+                for (var i= 0;i<data.length;i++){
+                  $("#article").append("<option value='"+data[i][0]+"'>"+data[i][1]+"</option>")
+                }
+            }
+        })
+
+    var table = $('#example').DataTable( {
+        "ajax": {
+            url:"{{ url_for("getlabel") }}"
+        },
+        "order": [[ 0, "desc" ]],
+         "processing": true,
+         stripeClasses: ["odd", "even"],
+        "bProcessing" : true,
+        "pagingType": "simple_numbers",
+         language: {
+        "sProcessing":   "处理中...",
+        "sLengthMenu":   "显示 _MENU_ 项结果",
+        "sZeroRecords":  "没有匹配结果",
+        "sInfo":         "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+        "sInfoEmpty":    "显示第 0 至 0 项结果，共 0 项",
+        "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+        "sInfoPostFix":  "",
+        "sSearch":       "搜索:",
+        "sUrl":          "",
+        "sEmptyTable":     "表中数据为空",
+        "sLoadingRecords": "载入中...",
+        "sInfoThousands":  ",",
+        "oPaginate": {
+            "sFirst":    "首页",
+            "sPrevious": "上页",
+            "sNext":     "下页",
+            "sLast":     "末页"
+        },
+        "oAria": {
+            "sSortAscending":  ": 以升序排列此列",
+            "sSortDescending": ": 以降序排列此列"
+        }
+    },
+        "columnDefs": [ {
+            "targets": -1,
+            "data": null,
+            "defaultContent": '<button class="btn btn-info edit" >编辑</button>'+'&nbsp;'+
+                '<button class="btn btn-success select" >修改状态</button>'
+        }
+        ]
+    } );
+
+    $('#example tbody').on( 'click', 'button', function () {
+        var data = table.row( $(this).parents('tr') ).data();
+        {#alert( data[0] +"'s salary is: "+ data[ 5 ] );#}
+         if ($(this).hasClass("edit")){
+             $("#myModalLabel").text("编辑标签")
+             $("#article").val(data[5])
+             $("#label").val(data[2])
+              $("#myModal").modal()
+             $("#add").unbind().click(function(){
+                 var  article = $("#article").val()
+                 var  label = $("#label").val()
+                 var id = data[0]
+                if(article == ""){
+                    layer.msg("文章标题不可以为空")
+                    return false;
+                }
+                if(label == ""){
+                    layer.msg("标签不可以为空")
+                    return false;
+                }
+                 $.ajax({
+                url:"{{ url_for("label") }}",
+                type:"PUT",
+                data:'{"id":"'+id+'","article":"'+article+'","label":"'+label+'"}',
+                contentType:"application/json",
+                success:function (result) {
+                  console.log(result)
+                    if (result["code"] == 200){
+                        table.ajax.reload()
+                        $("#myModal").modal('hide')
+                        layer.msg("编辑成功")
+                    }
+                }
+            })
+
+             })
+
+        }
+         if ($(this).hasClass("select")){
+
+             var state = data[3]
+             var id = data[0]
+             if(state == "显示"){
+                  layer.confirm('你确定修改这个标签的状态吗？', {
+                  btn: ['屏蔽','取消'] //按钮
+                }, function(){
+                  $.ajax({
+                     url:"{{ url_for("getlabel") }}",
+                     type:"PUT",
+                     data:'{"id":"'+id+'","state":"屏蔽"}',
+                     contentType:"application/json",
+                     success:function (result) {
+                      console.log(result)
+                        if (result["code"] == 200){
+                            table.ajax.reload()
+                            layer.msg("修改成功")
+                        }
+                    }
+                 })
+                }, function(){
+
+                });
+             }
+             else {
+               layer.confirm('你确定修改这个标签的状态吗？', {
+                  btn: ['显示','取消'] //按钮
+                }, function(){
+                  $.ajax({
+                     url:"{{ url_for("getlabel") }}",
+                     type:"PUT",
+                     data:'{"id":"'+id+'","state":"显示"}',
+                     contentType:"application/json",
+                     success:function (result) {
+                      console.log(result)
+                        if (result["code"] == 200){
+                            table.ajax.reload()
+                            layer.msg("修改成功")
+                        }
+                    }
+                 })
+                }, function(){
+
+                });
+             }
+
+
+        }
+
+    } );
+
+
+    $("#Add").unbind().click(function () {
+        $("#myModalLabel").text("添加标签")
+        $("#myModal").modal()
+        $("#add").unbind().click(function (rep) {
+            var  article = $("#article").val()
+            var  label = $("#label").val()
+            if(article == ""){
+                layer.msg("文章标题不可以为空")
+                return false;
+            }
+            if(label == ""){
+                layer.msg("标签不可以为空")
+                return false;
+            }
+            $.ajax({
+                url:"{{ url_for("label") }}",
+                type:"POST",
+                data:'{"article":"'+article+'","label":"'+label+'"}',
+                contentType:"application/json",
+                success:function (result) {
+                  console.log(result)
+                    if (result["code"] == 200){
+                        table.ajax.reload()
+                        $("#myModal").modal('hide')
+                        $("#label").val("")
+                        layer.msg("添加成功")
+                    }
+                }
+            })
+        })
+
+
+    })
+
+
+
+} );
+
+</script>
+{% endblock %}

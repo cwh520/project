@@ -1,0 +1,242 @@
+{% extends "Parent_template.html" %}
+
+{% block title %}管理员管理{% endblock %}
+{% block Navigation %}管理员管理{% endblock %}
+
+{% block css %}{% endblock %}
+
+
+
+{% block main %}
+
+<div class="row-fluid sortable ui-sortable">
+	<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2><i class="halflings-icon user"></i><span class="break"></span><span id="Add" style="cursor:pointer">添加管理员</span></h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>用户名</th>
+                                    <th>密码</th>
+                                    <th>昵称</th>
+                                    <th>头像</th>
+                                    <th>权限</th>
+                                    <th>创建时间</th>
+                                    <th>使用状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+</div>
+<!-- 模态框（Modal） -->
+<div class="modal hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">添加管理员</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="control-group success">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                            </div>
+                        </div>
+                       <div class="control-group success">
+                            <label class="control-label">用户名:</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" id="account" name="account" onblur="KeyUpname()" type="text" value="" placeholder="在此输入用户名...">
+                            </div>
+                        </div>
+                        <div class="control-group success">
+                            <label class="control-label">密码:</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" id="pwd" name="pwd" type="password"  value=""  placeholder="在此输入密码...">
+                            </div>
+                        </div>
+                        <div class="control-group success">
+                            <label class="control-label">重复密码:</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" id="cfpwd" name="cfpwd" type="password" value="" onkeyup="KeyUp()" placeholder="重复密码...">
+                            </div>
+                        </div>
+                        <div class="control-group success">
+                                <label class="control-label">昵称:</label>
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="nickname" name="nickname" type="text" value="" placeholder="在此输入昵称...">
+                                </div>
+                            </div>
+{#                        <div class="control-group success">#}
+{#                                <label class="control-label">头像:</label>#}
+{#                                <div class="controls">#}
+{##}
+{#c                                </div>#}
+{#                            </div>#}
+                     <div class="control-group success">
+                                <label class="control-label">权限:</label>
+                                <div class="controls">
+                                    <select id="permissions">
+                                        <option value="管理员">管理员</option>
+                                    </select>
+                                </div>
+                            </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="add">添 加</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+{% endblock %}
+
+
+
+{% block script %}
+<script>
+$(function () {
+     var table = $('#example').DataTable( {
+        "ajax": {
+            url:"{{ url_for("getadmin") }}"
+        },
+         "processing": true,
+         "stripeClasses": ["odd", "even"],
+         "bProcessing" : true,
+         "pagingType": "simple_numbers",
+         "language": {
+         "sProcessing":   "处理中...",
+         "sLengthMenu":   "显示 _MENU_ 项结果",
+         "sZeroRecords":  "没有匹配结果",
+         "sInfo":         "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+         "sInfoEmpty":    "显示第 0 至 0 项结果，共 0 项",
+         "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+         "sInfoPostFix":  "",
+         "sSearch":       "搜索:",
+         "sUrl":          "",
+         "sEmptyTable":     "表中数据为空",
+         "sLoadingRecords": "载入中...",
+         "sInfoThousands":  ",",
+         "oPaginate": {
+            "sFirst":    "首页",
+            "sPrevious": "上页",
+            "sNext":     "下页",
+            "sLast":     "末页"
+        },
+        "oAria": {
+            "sSortAscending":  ": 以升序排列此列",
+            "sSortDescending": ": 以降序排列此列"
+        }
+    },
+        "columnDefs": [ {
+            "targets": 2,
+            "data": null,
+            "defaultContent": "******"
+        },{
+            "targets": 4,
+            "render":function (data, type, row) {
+                 return '<img width="80" height="80"  src="'+data+'" class="img-rounded">'
+            }
+
+        },{
+            "targets": -1,
+            "data": null,
+            "defaultContent": '<button class="btn btn-info edit" >编辑</button>'+'&nbsp;'+
+                           '<button class="btn btn-success update">回复</button>'
+        }
+        ]
+    } );
+
+    $('#example tbody').on( 'click', 'button', function () {
+        var data = table.row($(this).parents('tr')).data();
+        {#alert( data[0] +"'s salary is: "+ data[ 5 ] );#}
+       
+    })
+    $("#Add").unbind().click(function () {
+        $("#myModal").modal()
+    })
+    $("#add").unbind().click(function () {
+         var account = $("#account").val()
+        var pwd = $('#pwd').val();
+        var cfpwd = $('#cfpwd').val();
+        var nickname = $("#nickname").val()
+        var permissions =$("#permissions").val()
+        if (account == ""){
+            layer.msg("用户名不可以为空")
+            return false
+        }
+        if (pwd != cfpwd){
+            layer.msg("密码不相同")
+            return false
+        }
+        if (nickname == ""){
+            layer.msg("昵称不可为空")
+            return false
+        }
+        $.ajax({
+             url:"{{ url_for("admin") }}",
+             type:"POST",
+             data:'{"account":"'+account+'","cfpwd":"'+cfpwd+'","nickname":"'+nickname+'","permissions":"'+permissions+'"}',
+             contentType:"application/json",
+             success:function (result) {
+                 if(result['code']==200){
+                     table.ajax.reload()
+                     $("#myModal").modal('hide')
+                     layer.msg("插入成功")
+                 }
+             }
+        })
+
+    })
+})
+
+
+ function KeyUp() {
+     var pwd = $('#pwd').val();
+     var cfpwd = $('#cfpwd').val();
+     if (pwd !="" || cfpwd !=""){
+         if (pwd == cfpwd) {
+         layer.tips('密码相同', '#cfpwd');
+         }
+         else {
+             layer.tips('密码不一致', '#cfpwd');
+         }
+     }
+ }
+$("#pwd").focus(function () {
+    $("#cfpwd").val("")
+})
+function KeyUpname() {
+   var account = $("#account").val()
+    console.log(account)
+   if (account !=""){
+        $.ajax({
+         url:"{{ url_for("getadmin") }}",
+         type:"POST",
+         data:'{"account":"'+account+'"}',
+         contentType:"application/json",
+         success:function (result) {
+             if(result['code']!=200){
+                 layer.tips("用户名已经存在","#account")
+             }
+         }
+    })
+   }
+}
+</script>
+{% endblock %}

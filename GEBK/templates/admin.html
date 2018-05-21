@@ -1,0 +1,147 @@
+{% extends "Parent_template.html" %}
+
+{% block title %}管理员管理{% endblock %}
+{% block Navigation %}管理员管理{% endblock %}
+
+{% block css %}{% endblock %}
+
+{% block main %}
+<div class="row-fluid sortable ui-sortable">
+	<div class="box span12">
+					<div class="box-header" data-original-title="">
+						<h2><i class="halflings-icon user"></i><span class="break"></span><span id="Add" style="cursor:pointer">管理员管理</span></h2>
+						<div class="box-icon">
+							<a href="#" class="btn-setting"><i class="halflings-icon wrench"></i></a>
+							<a href="#" class="btn-minimize"><i class="halflings-icon chevron-up"></i></a>
+							<a href="#" class="btn-close"><i class="halflings-icon remove"></i></a>
+						</div>
+					</div>
+					<div class="box-content">
+                        <table id="example" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>编号</th>
+                                    <th>用户名</th>
+                                    <th>密码</th>
+                                    <th>昵称</th>
+                                    <th>头像</th>
+                                    <th>权限</th>
+                                    <th>创建时间</th>
+                                    <th>使用状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
+                </div>
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">密码修改</h4>
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+                    <div class="control-group success">
+                            <label class="control-label"></label>
+                            <div class="controls">
+                            </div>
+                        </div>
+                       <div class="control-group success">
+                            <label class="control-label">用户名:</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" id="password" name="password"  type="text" value="" placeholder="在此输入密码...">
+                            </div>
+                        </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" id="add">添 加</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+
+
+{% endblock %}
+
+
+
+{% block script %}
+<script>
+$(function () {
+     var table = $('#example').DataTable( {
+        "ajax": {
+            url:"{{ url_for("getadmin") }}"
+        },
+         "processing": true,
+         "stripeClasses": ["odd", "even"],
+         "bProcessing" : true,
+         "pagingType": "simple_numbers",
+         "language": {
+         "sProcessing":   "处理中...",
+         "sLengthMenu":   "显示 _MENU_ 项结果",
+         "sZeroRecords":  "没有匹配结果",
+         "sInfo":         "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项",
+         "sInfoEmpty":    "显示第 0 至 0 项结果，共 0 项",
+         "sInfoFiltered": "(由 _MAX_ 项结果过滤)",
+         "sInfoPostFix":  "",
+         "sSearch":       "搜索:",
+         "sUrl":          "",
+         "sEmptyTable":     "表中数据为空",
+         "sLoadingRecords": "载入中...",
+         "sInfoThousands":  ",",
+         "oPaginate": {
+            "sFirst":    "首页",
+            "sPrevious": "上页",
+            "sNext":     "下页",
+            "sLast":     "末页"
+        },
+        "oAria": {
+            "sSortAscending":  ": 以升序排列此列",
+            "sSortDescending": ": 以降序排列此列"
+        }
+    },
+        "columnDefs": [ {
+            "targets": 2,
+            "data": null,
+            "defaultContent": "******"
+        },{
+            "targets": 4,
+            "render":function (data, type, row) {
+                 return '<img width="80" height="80"  src="'+data+'" class="img-rounded">'
+            }
+
+        },{
+            "targets": -1,
+            "render":function (data, type, row) {
+                if(data == "{{ name }}"){
+                    return '<button class="btn btn-info edit" >修改密码</button>'
+                }else {
+                    return '<span style="color: red">您没有权限</span>'
+                }
+            }
+        }
+        ]
+    } );
+
+    $('#example tbody').on( 'click', 'button', function () {
+        var data = table.row($(this).parents('tr')).data();
+        $("#myModal").modal()
+
+        })
+
+
+
+    })
+
+</script>
+{% endblock %}
