@@ -45,15 +45,18 @@ def Login():
         account = request.form["account"]
         password = request.form["password"]
         data = AdminModel().login(account,password)
-        print(data)
-        if len(data) != 0:
-            session['user_id'] = data['id']
-            session['user_name'] = data["nickname"]
-            session['permissions'] = data["permissions"]
-            session['account'] = data["account"]
-            return redirect(url_for("index"))
+        if data != None:
+            if data['state'] == "显示":
+                session['user_id'] = data['id']
+                session['user_name'] = data["nickname"]
+                session['permissions'] = data["permissions"]
+                session['account'] = data["account"]
+                session['nickname'] = data["nickname"]
+                return redirect(url_for("index"))
+            else:
+                return render_template("Login.html", error="layer.msg('您已经没有权限进入本系统')",users=account)
         else:
-            return data
+            return render_template("Login.html", error="layer.msg('密码或用户名错误')",users=account)
 
 
 
@@ -78,7 +81,10 @@ def admin():
         return data
 
     if request.method == "PUT":
-        pass
+        id = request.json.get("id")
+        state = request.json.get("state")
+        data = AdminModel().Updatestate(id,state)
+        return data
     if request.method == "DELETE":
         pass
 
@@ -94,7 +100,13 @@ def getadmin():
         data = AdminModel().chake(account)
         return data
     if request.method == "PUT":
-        pass
+        id = request.json.get("id")
+        password = request.json.get("cfpwd")
+        nickname = request.json.get("nickname")
+        permissions = request.json.get("permissions")
+        pic = "../static/Upload/admin.png"
+        data = AdminModel().Updatepwd(id, password, nickname, permissions, pic)
+        return data
     if request.method == "DELETE":
         pass
 
@@ -134,7 +146,7 @@ def getarticle():
 def addarticle():
     # 添加文章页面
     if request.method == "GET":
-        return render_template("addarticle.html", user = session.get('user_name'))
+        return render_template("addarticle.html", nickname = session.get('nickname'))
     # 添加文章功能
     if request.method == "POST":
         data = request.form.to_dict()
@@ -142,7 +154,7 @@ def addarticle():
         content = data["content"]
         bfcontent = data["bfcontent"]
         author = data["author"]
-        print(data)
+        # print(data)
         datas = ArticleModel().Addarticles(title, bfcontent, content, author)
         return datas
 
@@ -160,7 +172,7 @@ def editarticle():
         content = data["content"]
         bfcontent = data["bfcontent"]
         author = data["author"]
-        print(data)
+        # print(data)
         datas = ArticleModel().editarticle(id, title, bfcontent, content, author)
         return datas
 

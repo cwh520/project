@@ -42,7 +42,7 @@
         <div class="control-group success">
             <label class="control-label">作者:</label>
             <div class="controls">
-                <input class="input-xlarge focused" id="author" name="author" type="text" value="" placeholder="在此输入作者...">
+                <input class="input-xlarge focused" id="author" name="author" disabled="disabled" type="text" value="{{ nickname }}" >
             </div>
         </div>
 </form>
@@ -175,7 +175,7 @@
                         if(rep["code"] == 200){
                             var index = parent.layer.getFrameIndex(window.name);
                             setTimeout(function(){parent.layer.close(index)}, 1000);
-                            parent.layer.table.ajax.reload()
+                            parent.tables.ajax.reload()
                             parent.layer.msg("插入成功")
                        }else{
                            console.log(rep["content"])

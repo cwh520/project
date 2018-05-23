@@ -37,16 +37,15 @@
                 </div>
 </div>
 
-<!-- 模态框（Modal） -->
 <div class="modal hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title" id="myModalLabel">密码修改</h4>
+                <h4 class="modal-title" id="myModalLabel">编辑信息</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal" id="myform">
                     <div class="control-group success">
                             <label class="control-label"></label>
                             <div class="controls">
@@ -55,22 +54,45 @@
                        <div class="control-group success">
                             <label class="control-label">用户名:</label>
                             <div class="controls">
-                                <input class="input-xlarge focused" id="password" name="password"  type="text" value="" placeholder="在此输入密码...">
+                                <input class="input-xlarge focused" id="account" name="account" disabled="disabled" type="text" value="">
                             </div>
                         </div>
+                        <div class="control-group success">
+                            <label class="control-label">密码:</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" id="pwd" name="pwd" type="password"  value=""   placeholder="在此输入密码...">
+                            </div>
+                        </div>
+                        <div class="control-group success">
+                            <label class="control-label">重复密码:</label>
+                            <div class="controls">
+                                <input class="input-xlarge focused" id="cfpwd" name="cfpwd" type="password" value="" onkeyup="KeyUp()" placeholder="重复密码...">
+                            </div>
+                        </div>
+                        <div class="control-group success">
+                                <label class="control-label">昵称:</label>
+                                <div class="controls">
+                                    <input class="input-xlarge focused" id="nickname" name="nickname" type="text" value="" placeholder="在此输入昵称...">
+                                </div>
+                            </div>
+{#                        <div class="control-group success">#}
+{#                                <label class="control-label">头像:</label>#}
+{#                                <div class="controls">#}
+{##}
+{#c                                </div>#}
+{#                            </div>#}
+
 
                 </form>
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" onclick="empty()" data-dismiss="modal">关闭</button>
                 <button type="button" class="btn btn-primary" id="add">添 加</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal -->
 </div>
-
-
 {% endblock %}
 
 
@@ -135,13 +157,54 @@ $(function () {
 
     $('#example tbody').on( 'click', 'button', function () {
         var data = table.row($(this).parents('tr')).data();
-        $("#myModal").modal()
-
+             $("#account").val(data[1])
+             $("#pwd,#cfpwd").val(data[2])
+             $("#nickname").val(data[3])
+             $("#myModal").modal()
+             $("#add").unbind().click(function () {
+                  var id = data[0]
+                  var pwd = $('#pwd').val();
+                  var cfpwd = $('#cfpwd').val();
+                  var nickname = $("#nickname").val()
+                  if (pwd != cfpwd){
+                        layer.msg("密码不相同")
+                        return false
+                    }
+                 $.ajax({
+                      url:"{{ url_for("getadmin") }}",
+                      type:"PUT",
+                      data:'{"id":"'+id+'","cfpwd":"'+cfpwd+'","nickname":"'+nickname+'"}',
+                      contentType:"application/json",
+                      success:function (result) {
+                         if(result['code']==200){
+                             table.ajax.reload()
+                             $("#myModal").modal('hide')
+                             layer.msg("编辑成功")
+                         }
+                     }
+                })
+             })
         })
 
 
 
     })
+ function KeyUp() {
+     var pwd = $('#pwd').val();
+     var cfpwd = $('#cfpwd').val();
+     if (pwd !="" || cfpwd !=""){
+         if (pwd == cfpwd) {
+         layer.tips('密码相同', '#cfpwd');
+         }
+         else {
+             layer.tips('密码不一致', '#cfpwd');
+         }
+     }
+ }
+$("#pwd").focus(function () {
+    this.select()
+    $("#cfpwd").val("")
+})
 
 </script>
 {% endblock %}

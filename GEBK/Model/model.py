@@ -11,7 +11,6 @@ class AdminModel(object):
     # 用户登录
     def login(self, account, password):
         password = self.create_md5(password)
-        print(password)
         if account and password:
             datas = Admin.query.filter_by(account=account, password=password).all()
             for item in datas:
@@ -26,16 +25,7 @@ class AdminModel(object):
                 }
             if len(datas) != 0:
                return data
-            else:
-               return jsonify({
-                   "code": 500,
-                   "content": "密码和用户明错误"
-               })
-        else:
-            return jsonify({
-                "code":400,
-                "content":"参数不完整"
-            })
+
 
 
     # 获取所有管理员
@@ -94,6 +84,59 @@ class AdminModel(object):
                 "code": 400,
                 "content": "你传入数据不完整"
             })
+
+    # 修改密码
+    def Updatepwd(self,id , password, nickname, permissions, pic):
+
+            result = Admin.query.filter(Admin.id== id).first()
+            old_password = result.password
+            old_nickname = result.nickname
+            old_permissions = result.permissions
+            old_pic = result.pic
+            if old_password == password:
+                result.nickname = nickname
+                # print(permissions)
+                if permissions != None:
+                   result.permissions = permissions
+            else:
+                password = self.create_md5(password)
+                result.password = password
+                result.nickname = nickname
+                if permissions != None:
+                   result.permissions = permissions
+            db.session.commit()
+            return jsonify({
+                "code":200,
+                "content":"编辑成功"
+            })
+
+
+
+
+    # 修改转态
+    def Updatestate(self,id, state):
+        if id and state:
+            result = Admin.query.filter(Admin.id == id).first()
+            old_state = result.state
+            result.state = state
+            db.session.commit()
+            if result.state == state:
+                return jsonify({
+                    "code": 200,
+                    "content": "修改成功"
+                })
+            else:
+                return jsonify({
+                    "code": 500,
+                    "content": "修改失败"
+                })
+
+        else:
+            return jsonify({
+                "code": 400,
+                "content": "参数不完整"
+            })
+
 
 
     # md5 加密密码 salt 盐值

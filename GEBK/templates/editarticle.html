@@ -144,7 +144,7 @@
             $("#author").val(datas["author"])
              var editor = UE.getEditor('editor')
              editor.ready(function () {
-                 editor.setContent(datas['content']);
+                 editor.setContent(datas['content']); //editor编辑器赋值
              })
             $("#SaveArticle").unbind().click(function () {
                 var id = datas['id']
@@ -182,7 +182,7 @@
                         if(rep["code"] == 200){
                             var index = parent.layer.getFrameIndex(window.name);
                             setTimeout(function(){parent.layer.close(index)}, 1000);
-                            parent.table.ajax.reload()
+                            parent.tables.ajax.reload()
                             parent.layer.msg("编辑成功")
                        }else{
                            console.log(rep["content"])

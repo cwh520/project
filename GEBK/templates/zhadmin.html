@@ -48,7 +48,7 @@
                 <h4 class="modal-title" id="myModalLabel">添加管理员</h4>
             </div>
             <div class="modal-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal" id="myform">
                     <div class="control-group success">
                             <label class="control-label"></label>
                             <div class="controls">
@@ -96,7 +96,7 @@
 
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" onclick="empty()" data-dismiss="modal">关闭</button>
                 <button type="button" class="btn btn-primary" id="add">添 加</button>
             </div>
         </div><!-- /.modal-content -->
@@ -155,9 +155,16 @@ $(function () {
 
         },{
             "targets": -1,
-            "data": null,
-            "defaultContent": '<button class="btn btn-info edit" >编辑</button>'+'&nbsp;'+
-                           '<button class="btn btn-success update">回复</button>'
+            "render":function (data, type, row) {
+                  if(data == "{{ name }}") {
+                      return  '<button class="btn btn-info updatepwd" >修改密码</button>'
+
+                  }else {
+                     return  '<button class="btn btn-info updatepwd" >修改密码</button>'+'&nbsp;'+
+                           '<button class="btn btn-success updatestate">修改状态</button>'
+                  }
+            },
+
         }
         ]
     } );
@@ -165,10 +172,109 @@ $(function () {
     $('#example tbody').on( 'click', 'button', function () {
         var data = table.row($(this).parents('tr')).data();
         {#alert( data[0] +"'s salary is: "+ data[ 5 ] );#}
+
+        if ($(this).hasClass("updatepwd")){
+             $("#account").val(data[1]).attr({"disabled":"disabled"})
+             $("#pwd,#cfpwd").val(data[2])
+             $("#nickname").val(data[3])
+              if (data[5] == "站长"){
+                   $("#permissions").css({"display":"none"})
+              }else {
+                  $("#permissions").show()
+                  $("#permissions").val(data[5])
+              }
+                $("#myModal").modal()
+             $("#add").unbind().click(function () {
+                  var id = data[0]
+                  var pwd = $('#pwd').val();
+                  var cfpwd = $('#cfpwd').val();
+                  var nickname = $("#nickname").val()
+                  if (data[5] == "站长")
+                      permissions = data[5]
+                  else {
+                      permissions = $("#permissions").val()
+                  }
+                  if (pwd != cfpwd){
+                        layer.msg("密码不相同")
+                        return false
+                    }
+                 $.ajax({
+                      url:"{{ url_for("getadmin") }}",
+                      type:"PUT",
+                      data:'{"id":"'+id+'","cfpwd":"'+cfpwd+'","nickname":"'+nickname+'","permissions":"'+permissions+'"}',
+                      contentType:"application/json",
+                      success:function (result) {
+                         if(result['code']==200){
+                             table.ajax.reload()
+                             $("#myModal").modal('hide')
+                             layer.msg("编辑成功")
+                         }
+                     }
+                })
+             })
+
+
+
+        }
+         if ($(this).hasClass("updatestate")){
+              var state = data[7]
+             var id = data[0]
+             if(state == "显示"){
+                  layer.confirm('你确定修改这个标签的状态吗？', {
+                  btn: ['屏蔽','取消'] //按钮
+                }, function(){
+                  $.ajax({
+                     url:"{{ url_for("admin") }}",
+                     type:"PUT",
+                     data:'{"id":"'+id+'","state":"屏蔽"}',
+                     contentType:"application/json",
+                     success:function (result) {
+                      console.log(result)
+                        if (result["code"] == 200){
+                            table.ajax.reload()
+                            layer.msg("修改成功")
+                        }
+                    }
+                 })
+                }, function(){
+
+                });
+             }
+             else {
+               layer.confirm('你确定修改这个标签的状态吗？', {
+                  btn: ['显示','取消'] //按钮
+                }, function(){
+                  $.ajax({
+                     url:"{{ url_for("admin") }}",
+                     type:"PUT",
+                     data:'{"id":"'+id+'","state":"显示"}',
+                     contentType:"application/json",
+                     success:function (result) {
+                      console.log(result)
+                        if (result["code"] == 200){
+                            table.ajax.reload()
+                            layer.msg("修改成功")
+                        }
+                    }
+                 })
+                }, function(){
+
+                });
+             }
+        }
+
        
     })
+
+
+
+    // 添加管理员
     $("#Add").unbind().click(function () {
         $("#myModal").modal()
+        $("#permissions").show()
+        $("#account").removeAttr("disabled")
+        empty()
+
     })
     $("#add").unbind().click(function () {
          var account = $("#account").val()
@@ -206,6 +312,7 @@ $(function () {
 })
 
 
+
  function KeyUp() {
      var pwd = $('#pwd').val();
      var cfpwd = $('#cfpwd').val();
@@ -219,6 +326,7 @@ $(function () {
      }
  }
 $("#pwd").focus(function () {
+    this.select()
     $("#cfpwd").val("")
 })
 function KeyUpname() {
@@ -238,5 +346,13 @@ function KeyUpname() {
     })
    }
 }
+
+
+function empty() {
+    $('input[type="text"]').val("")
+    $('input[type="password"]').val("")
+
+}
+
 </script>
 {% endblock %}
