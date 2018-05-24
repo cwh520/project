@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>留言列表 -- HoverTree</title>
+    <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+<style>
+.keleyitable {
+width: 800px;
+}
+
+.keleyitable table, td, th {
+border: 1px solid green;margin-top:10px;
+}
+.klytd {width:100px;text-align:right
+}
+.hvttd {
+width:500px}
+</style>
+
+</head>
+<body>
+<div style="margin:0px auto;" class="keleyitable"><h4>留言</h4>
+
+
+<div id="commit"></div>
+
+<div style="margin:0px auto;" class="keleyitable" ><h4>留言回复列表</h4></div>
+
+
+<div id="reply"></div>
+{#<table>#}
+{#<tr><td class="klytd">留言时间：</td><td class="hvttd"></td></tr>#}
+{#<tr><td class="klytd">留言人：</td><td class="hvttd"></td></tr>#}
+{#<tr><td class="klytd">标题：</td><td class="hvttd"></td></tr>#}
+{#<tr><td class="klytd">内容：</td><td class="hvttd"></td></tr>#}
+{#<tr><td class="klytd">回复：</td><td class="hvttd"></td></tr>#}
+{#</table>#}
+
+</div>
+
+
+</body>
+</html>
+<script src="../static/js/jquery-1.9.1.min.js"></script>
+<script src="../static/layer-v3.1.1/layer/layer.js"></script>
+
+
+<script>
+   $(function () {
+        var id = parent.datas["id"]
+        console.log(id)
+        $.ajax({
+            url:"{{ url_for("reply") }}",
+            type:"POST",
+            data:'{"id":"'+id+'"}',
+            contentType:"application/json",
+            success:function (result) {
+                //console.log(result["commits"][0])
+                commit = result["commits"][0]
+                var html ='<table border="0">' +
+                            '<tr><td class="klytd">留言时间：</td><td class="hvttd">'+commit["time"]+'</td></tr>' +
+                            '<tr><td class="klytd">留言人：</td><td class="hvttd">'+commit['nickname']+'</td></tr>' +
+                            '<tr><td class="klytd">标题：</td><td class="hvttd">'+commit['title']+'</td></tr>' +
+                            '<tr><td class="klytd">内容：</td><td class="hvttd">'+commit['content']+'</td></tr>' +
+                            '<tr><td class="klytd">操作：</td><td class="hvttd" style="text-align: center;"><span class="btn" abc="'+commit["id"]+'" id="add">回复</span></td></tr>' +
+                            '</table>'
+                $("#commit").append(html)
+                 $("#add").click(function(){
+                       var id = $(this).attr("abc")
+                       
+
+                   })
+                reply = result["replys"]
+                console.log(reply)
+                if(reply=="")
+                {
+                    $("#reply").append("<table><tr><td class='hvttd' style='text-align: center;'>这条留言没有回复</td></tr></table>")
+                }else {
+                    for (var i=0; i<reply.length; i++) {
+                        var html ='<table border="0">' +
+                            '<tr><td class="klytd">回复时间：</td><td class="hvttd">'+reply[i]["time"]+'</td></tr>' +
+                            '<tr><td class="klytd">回复留言人：</td><td class="hvttd">'+reply[i]['nickname']+'</td></tr>' +
+                            '<tr><td class="klytd">回复内容：</td><td class="hvttd">'+reply[i]['content']+'</td></tr>' +
+                            '</table>'
+                         }
+                         $("#reply").append(html)
+
+                }
+            }
+        })
+
+
+
+
+   })
+
+
+
+
+</script>

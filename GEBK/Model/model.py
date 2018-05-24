@@ -2,7 +2,7 @@
 from Model.MysqlTool import db
 from Model.MysqModel import Admin, Article, Picture, Label, Comment, Reply
 from hashlib import md5
-from flask import Flask,jsonify
+from flask import Flask,jsonify, g
 import json
 import requests
 
@@ -377,6 +377,45 @@ class CommentModel(object):
                 "code": 400,
                 "content": "参数不完整"
             })
+
+class ReplyMOdel(object):
+    # 获取留言的全部留言
+    def GeReply(self, id):
+        da = Comment.query.filter(Comment.id == id).all()
+        commit = []
+        for i in da:
+            dat = {
+                "id": i.id,
+                "title": LabelModel().Gettitle(i.article_on),
+                "nickname": i.nickname,
+                "mailbox": i.mailbox,
+                "content": i.content,
+                "pic": i.pic,
+                "state": i.state,
+                "time": i.time.strftime('%Y-%m-%d %H:%M:%S')
+            }
+            commit.append(dat)
+        datas = Reply.query.filter(Reply.comment_on == id).all()
+        reply = []
+        for item in datas:
+            dat = {
+                "id": item.id,
+                "comment_on": item.comment_on,
+                "nickname": item.nickname,
+                "mailbox": item.mailbox,
+                "content": item.content,
+                "pic": item.pic,
+                "state": item.state,
+                "time": item.time.strftime('%Y-%m-%d %H:%M:%S')
+            }
+            reply.append(dat)
+        return jsonify({
+            "commits": commit,
+            "replys": reply
+        })
+
+
+
 
 
 

@@ -1,5 +1,5 @@
 from flask import Flask,render_template,request,jsonify, url_for, session,redirect, g, make_response
-from Model.model import AdminModel, ArticleModel, LabelModel, CommentModel
+from Model.model import AdminModel, ArticleModel, LabelModel, CommentModel,ReplyMOdel
 from uploader import Uploader
 from datetime import timedelta
 import decorator
@@ -142,7 +142,6 @@ def getarticle():
         pass
 
 @app.route('/addarticle', methods=['GET', 'POST'])
-@decorator.login_required
 def addarticle():
     # 添加文章页面
     if request.method == "GET":
@@ -159,7 +158,6 @@ def addarticle():
         return datas
 
 @app.route('/editarticle', methods=['GET', 'POST'])
-@decorator.login_required
 def editarticle():
     # 编辑文章页面
     if request.method == "GET":
@@ -255,6 +253,17 @@ def info():
     # 文章预览页面
     return render_template("information.html", user = session.get('user_name'))
 
+
+
+@app.route('/reply', methods=['GET','POST'])
+def reply():
+    # 留言回复页面
+    if request.method == "GET":
+        return render_template("Reply.html", user=session.get('user_name'))
+    if request.method == "POST":
+        id = request.json.get("id")
+        data = ReplyMOdel().GeReply(id)
+        return data
 
 
 
