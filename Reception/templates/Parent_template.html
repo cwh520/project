@@ -201,10 +201,10 @@
                                                 <i class="fa fa-bullhorn icon_menu"></i>
                                             </li>
 
-                                            <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="contact" style="margin-bottom: 48px !important;">
-                                               <span class="tite-list">contact</span>
-                                                   <i class="fa fa-envelope icon_menu"></i>
-                                            </li>
+{#                                            <li class="tabs-contact hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="contact" style="margin-bottom: 48px !important;">#}
+{#                                               <!--<span class="tite-list">contact</span>#}
+{#                                                   <i class="fa fa-envelope icon_menu"></i>-->#}
+{#                                            </li>#}
 
                                             <a href="#" id="print"><i class="fa fa-print icon_print"></i> </a>
                                             <a href="#" id="downlowd"><i class="fa fa-download icon_print"></i> </a>
@@ -481,21 +481,21 @@
                                                     <li>
                                                         <h5>web 应用开发 <span class="duration"><i class="fa fa-calendar color"></i> 2016 - 2017</span></h5>
                                                         <h6><span class="fa fa-book"></span> 湖北银河信息技术学校</h6>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscingVivamus sit amet ligula non lectus cursus egestas. Cras erat lorem, fringilla quis sagittis in, sagittis inNam leo tortor Nam leo tortor Vivamus.</p>
+                                                        <p></p>
                                                     </li>
                                                 </ul>
                                                 <!-- /.attributes -->
                                                 <br>
 
 
-                                                  <!-- .title_content -->
+                                                  <!-- .title_content
                                                 <div class="title_content">
                                                     <div class="text_content">个人奖品</div>
                                                     <div class="clear"></div>
                                                 </div>
                                                 <!-- /.title_content -->
 
-                                                <!-- .attributes -->
+                                                <!-- .attributes
                                                 <ul class="attributes">
                                                     <li class="first">
                                                         <h5>Graphic &amp; Art Direction <span class="duration"><i class="fa fa-calendar color"></i> 2013 - 2014</span></h5>
@@ -846,11 +846,12 @@
                                                                                             </p>
                                                                                             <p class="form-group" id="contact-email">
                                                                                                 <label for="email">你的 邮箱</label>
-                                                                                                <input type="email" name="email_{{ loop.index }}" class="span3 form-control" id="inputSuccess" placeholder="Email*... "required>
+                                                                                                <input type="email" name="email_{{ loop.index }}"  class="span3 form-control" id="inputSuccess" placeholder="Email*... "required>
                                                                                             </p>
                                                                                             <p class="form-group" id="contact-message">
                                                                                                 <label for="message">你的 内容</label>
-                                                                                                <textarea name="message_{{ loop.index }}" cols="88" rows="6" class="form-control" id="inputError" placeholder="Your Comment..."></textarea>
+                                                                                                <textarea name="message_{{ loop.index }}"  cols="88" rows="6" class="form-control" id="inputError" placeholder="Your Comment..."></textarea>
+
                                                                                             </p>
                                                                                             <input type="reset" index="{{ loop.index }}" value="清 空"  class="reset">
                                                                                             <button class="submit" abc="{{ item['id'] }}" index="{{ loop.index }}"  data-target=".bs-example-modal-sm">确认 评论</button>
@@ -961,7 +962,8 @@
                                                                                             </p>
                                                                                             <p class="form-group" id="contact-message">
                                                                                                 <label for="message">你的 内容</label>
-                                                                                                <textarea name="message_{{ loop.index }}" cols="88" rows="6" class="form-control" id="inputError" placeholder="Your Comment..."></textarea>
+                                                                                                <textarea name="message_{{ loop.index }}"  cols="88" rows="6" class="form-control" id="inputError" placeholder="Your Comment..."></textarea>
+
                                                                                             </p>
                                                                                             <input type="reset" index="{{ loop.index }}"  value="清 空"  class="reset">
                                                                                             <button class="submit" abc="{{ item['id'] }}" index="{{ loop.index }}"  data-target=".bs-example-modal-sm">确认 评论</button>
@@ -1030,7 +1032,7 @@
 
 
 
-                                            <!-- .留言开始-->
+                                            <!-- .留言开始
 
                                               <div id="contact" class="content_2 resp-tab-content _mCS_5 _mCS_10 _mCS_15 mCS_destroyed resp-tab-content-active" aria-labelledby="tab_item-4" style="display: block; height: 100%;">
 
@@ -1047,7 +1049,7 @@
                                                 <div class="row" id="contact-user">
                                                     <div class="col-md-5">
                                                         <div class="contact-info">
-                                                            <!--<h3 class="main-heading"><span>Contact info</span></h3>-->
+
 
                                                             <div class="title_content" style="float: none;">
                                                                 <div class="text_content">联系 信息</div>
@@ -1060,10 +1062,8 @@
                                                                 <li><span class="span-info"><i class="glyphicon glyphicon-globe"></i> Website:</span> www.brown-smith.com</li>
                                                             </ul>
                                                         </div>
-                                                        <!-- /Contact Info -->
                                                         <div class="clear"></div>
 
-                                                        <!--<h3 class="main-heading" style="margin-left: 22px;"><span>Follow me</span></h3>-->
 
                                                         <div class="title_content tiltle_contacts" style="float: none;">
                                                             <div class="text_content">Follow me</div>
@@ -1086,14 +1086,12 @@
                                                     </div>
 
                                                     <div class="col-md-7">
-                                                        <!-- Contact Form -->
                                                         <div class="title_content" style="float: none;">
                                                             <div class="text_content">Let's keep in touch</div>
                                                             <div class="clear"></div>
                                                         </div>
 
                                                         <div class="contact-form">
-                                                            <!--<h3 class="main-heading"><span>Let's keep in touch</span></h3>-->
 
 
 
@@ -1114,7 +1112,6 @@
                                                                     <textarea name="message" cols="88" rows="6" class="form-control message-contact" id="inputError" placeholder="Message..."></textarea>
                                                                 </p>
                                                                 <input type="reset"  value="CLEAR" class="reset">
-                                                                <!-- <input type="submit" name="submit" value="SEND MESSAGE" class="submit">-->
 
                                                                 <section class="button-demo" style="display: inline-block;">
                                                                     <button class="ladda-button submit send_email" name="submit" data-color="green" data-style="expand-left">SEND MESSAGE</button>
@@ -1122,16 +1119,15 @@
 
                                                             </form>
                                                         </div>
-                                                        <!-- /Contact Form -->
                                                     </div>
                                                 </div>
                                             </div>
 
 
 
-                                        </div>                                            </div>
+                                        </div>    </div>
 
-                                              <!-- 留言结束 -->
+                                               留言结束 -->
 
                                         </div>
                                         <!-- End #resp-tabs-container -->
@@ -1395,11 +1391,12 @@
                     '</p>'+
                     '<p class="form-group" id="contact-email">'+
                         '<label for="email">你的 邮箱</label>'+
-                        '<input type="email" name="email" class="span3 form-control" id="inputSuccess" placeholder="Email*... "required>'+
+                        '<input type="email" name="email"  class="span3 form-control" id="inputSuccess" placeholder="Email*... "required>'+
                     '</p>'+
                     '<p class="form-group" id="contact-message">'+
                         '<label for="message">内容 </label>'+
-                        '<textarea name="message" cols="88" rows="6" class="form-control" id="inputError" placeholder="Your Comment..."></textarea>'+
+                        '<textarea name="message" cols="88" rows="6" onkeyup="wordStatic(this);" class="form-control" id="inputError" placeholder="请保持字数在32位以上"></textarea>'+
+                        '<div class="weui_textarea_counter"><span id="num">0</span>/500</div> '+
                     '</p>'+
                     '<input type="reset" name="reset" value="取 消" class="reset">'+
                    ' <button class="submit" id="submit" data-target=".bs-example-modal-sm">回 复 </button>'+
@@ -1434,15 +1431,24 @@
                               layer.msg("昵称不能为空")
                               return false
                            }
-                           if(email == ""){
+                           if(email.trim()  == ""){
                               layer.msg("邮箱不能为空")
                               return false
                            }
 
-                           if(message == ""){
+                           if(message.trim() == ""){
                               layer.msg("内容不能为空")
                               return false
                            }
+                           if(message.trim().length <= 32){
+                              layer.msg("内容字数不够")
+                              return false
+                           }
+                            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                                if(!myreg.test(email.trim())){
+                                    layer.msg("邮箱格式不正确")
+                                    return false;
+                                }
                           $.ajax({
                                url:"{{ url_for("replys") }}",
                                type:"POST",
@@ -1515,7 +1521,11 @@
               layer.msg("内容不能为空")
               return false
            }
-
+            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if(!myreg.test(email.trim())){
+                    layer.msg("邮箱格式不正确")
+                    return false;
+                }
            $.ajax({
                url:"{{ url_for("comments") }}",
                type:"POST",
@@ -1561,9 +1571,31 @@
 
    })
 
+function wordStatic(input) {
+        // 获取要显示已经输入字数文本框对象
+        var content = document.getElementById('num');
+        if (content && input) {
+            // 获取输入框输入内容长度并更新到界面
+            var value = input.value;
+            // 将换行符不计算为单词数
+            value = value.replace(/\n|\r/gi,"");
+            // 更新计数
+            content .innerText = value.length;
 
+        }
+    }
 
-
+{##}
+{# function test()#}
+{#{#}
+{#     var temp = document.getElementsByName("message");   //输入邮箱的文本框#}
+{#     //对电子邮件的验证#}
+{#     var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;#}
+{#    if(!myreg.test(temp.value)){#}
+        {#alert('提示\n\n请输入有效的E_mail！');#}
+{#        myreg.focus();#}
+{#        return false;#}
+{#    }#}
 
 
 
