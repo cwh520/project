@@ -1,9 +1,9 @@
 #endcoding:utf-8
 import os
 
-USERNAME = 'root'
+USERNAME = 'cwh'
 PASSWORD = '616263'
-HOST = '127.0.0.1'
+HOST = '192.168.31.14'
 RORT = '3306'
 DATABASE = 'GRBK'
 
