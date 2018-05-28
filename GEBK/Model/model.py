@@ -11,6 +11,7 @@ class AdminModel(object):
     # 用户登录
     def login(self, account, password):
         password = self.create_md5(password)
+        print(password)
         if account and password:
             datas = Admin.query.filter_by(account=account, password=password).all()
             for item in datas:
