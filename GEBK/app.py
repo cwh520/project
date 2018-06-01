@@ -255,16 +255,22 @@ def info():
 
 
 
-@app.route('/reply', methods=['GET','POST'])
+@app.route('/reply', methods=['GET','POST','PUT'])
 def reply():
     # 留言回复页面
     if request.method == "GET":
-        return render_template("Reply.html", user=session.get('user_name'))
+        return render_template("Reply.html", nickname=session.get('nickname'),exml="15272004813@qq.com")
     if request.method == "POST":
         id = request.json.get("id")
         data = ReplyMOdel().GeReply(id)
         return data
-
+    if request.method == "PUT":
+        id = request.json.get("id"),
+        name = request.json.get("name")
+        exmil = request.json.get("exmil")
+        content = request.json.get("content")
+        data = ReplyMOdel().Addreply(id,name,exmil,content)
+        return data
 
 
 
@@ -391,4 +397,4 @@ def upload():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()

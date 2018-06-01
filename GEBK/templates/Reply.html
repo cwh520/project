@@ -3,26 +3,38 @@
 <head>
 <title>留言列表 -- HoverTree</title>
     <link href="../static/css/bootstrap.min.css" rel="stylesheet">
-<style>
-.keleyitable {
-width: 800px;
-}
-
-.keleyitable table, td, th {
-border: 1px solid green;margin-top:10px;
-}
-.klytd {width:100px;text-align:right
-}
-.hvttd {
-width:500px}
-</style>
+    <link href="../static/Mycss.css" rel="stylesheet">
 
 </head>
 <body>
 <div style="margin:0px auto;" class="keleyitable"><h4>留言</h4>
 
+<div id="commit">
 
-<div id="commit"></div>
+</div>
+<div id="Model" style="display: none;">
+     <div  class="messages">
+         <div class="messlist">
+              <label>姓名</label>
+              <input type="text" id ="name" placeholder="姓名" value="{{ nickname }}">
+              <div class="clears"></div>
+         </div>
+         <div class="messlist">
+              <label>电子邮件</label>
+              <input type="text"  id="exmil" placeholder="电子邮件" value="{{ exml }}">
+              <div class="clears"></div>
+         </div>
+         <div class="messlist textareas">
+              <label>留言内容</label>
+              <textarea id="content" placeholder="留言内容">	感谢您的评论，您的评论是对我们最大的支持，我们会继续努力的 ！！！！！！！！！</textarea>
+              <div class="clears"></div>
+         </div>
+         <div class="messsub">
+              <input type="submit" id="Add" value="提交" style="background:#00a3eb;color:#fff;">
+              <input type="reset" value="重填">
+         </div>
+     </div>
+</div>
 
 <div style="margin:0px auto;" class="keleyitable" ><h4>留言回复列表</h4></div>
 
@@ -39,12 +51,16 @@ width:500px}
 </div>
 
 
+
+
+
+
+
+
 </body>
 </html>
 <script src="../static/js/jquery-1.9.1.min.js"></script>
 <script src="../static/layer-v3.1.1/layer/layer.js"></script>
-
-
 <script>
    $(function () {
         var id = parent.datas["id"]
@@ -67,7 +83,31 @@ width:500px}
                 $("#commit").append(html)
                  $("#add").click(function(){
                        var id = $(this).attr("abc")
-
+                        $("#Model").show()
+                        $("#Add").unbind().click(function () {
+                            var name = $("#name").val()
+                            var exmil = $("#exmil").val()
+                            var content = $("#content").val()
+                            var mydate = new Date();
+                            var t=mydate.toLocaleString();
+                            $.ajax({
+                                url:"{{ url_for("reply") }}",
+                                type:"PUT",
+                                data:'{"id":"'+id+'","name":"'+name+'","exmil":"'+exmil+'","content":"'+content+'"}',
+                                contentType:"application/json",
+                                success:function (rep) {
+                                  if (rep["code"]==200){
+                                      $("#Model").hide()
+                                       var html ='<table border="0">' +
+                                            '<tr><td class="klytd">留言时间：</td><td class="hvttd">'+t+'</td></tr>' +
+                                            '<tr><td class="klytd">留言人：</td><td class="hvttd">'+name+'</td></tr>' +
+                                            '<tr><td class="klytd">内容：</td><td class="hvttd">'+content+'</td></tr>' +
+                                            '</table>'
+                                        $("#reply").append(html)
+                                  }
+                                }
+                            })
+                        })
 
                    })
                 reply = result["replys"]
@@ -98,3 +138,7 @@ width:500px}
 
 
 </script>
+
+
+
+

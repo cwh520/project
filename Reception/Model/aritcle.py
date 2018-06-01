@@ -20,7 +20,7 @@ class ArticleModel(object):
                 "author": item.author,
                 "state": item.state,
                 "time": item.time.strftime('%Y-%m-%d %H:%M:%S'),
-                "bfcontent": item.bfcontent,
+                "bfcontent": item.bfcontent[:200]+'……',
                 "label":self.Getalllable(item.id),
                 "comment":self.Countcomment(item.id)
             }
@@ -33,8 +33,12 @@ class ArticleModel(object):
         data = db.session.query(func.count(model.Comment.content)).filter(model.Comment.article_on == id).first()
         return data[0]
 
+    # def func(strs):
+    #     if len(strs) > 180:
+    #         strs = strs[:180] + '***'
+    #         return strs
 
-    # 获取所有的标签
+            # 获取所有的标签
     def Getalllable(self,id):
          data = model.Label.query.filter(model.Label.state == "显示", model.Label.article_on == id).all()
          da = []
@@ -68,7 +72,7 @@ class ArticleModel(object):
 
                 html += '</div>'
                 g.html += html
-            # print(g.html)
+            print(g.html)
             return jsonify({
                 "code":200,
                 "content":g.html

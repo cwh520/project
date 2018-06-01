@@ -379,6 +379,7 @@ class CommentModel(object):
                 "content": "参数不完整"
             })
 
+# 留言回复模型
 class ReplyMOdel(object):
     # 获取留言的全部留言
     def GeReply(self, id):
@@ -414,6 +415,22 @@ class ReplyMOdel(object):
             "commits": commit,
             "replys": reply
         })
+
+
+    def Addreply(self, id, name, exmil, content, pic="../static/Upload/admin.png"):
+        sql = Reply(comment_on=id,nickname=name,mailbox=exmil,content=content,pic=pic)
+        db.session.add(sql)
+        db.session.commit()
+        if sql.id != 0:
+            return jsonify({
+                "code": 200,
+                "content": "插入成功"
+            })
+        else:
+            return jsonify({
+                "code": 500,
+                "content": "插入失败"
+            })
 
 
 

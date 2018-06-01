@@ -1,0 +1,49 @@
+
+*{margin:0;padding:0;}
+.clears{ clear:both;}
+/*messages*/
+.messages{padding:15px 0;}
+.messages input,.messages select,.messages textarea{margin:0;padding:0; background:none; border:0; font-family:"Microsoft Yahei";}
+.messlist {height:30px;margin-bottom:10px;}
+.messlist label{float:left;width:100px; height:30px; font-size:14px; line-height:30px; text-align:right;padding-right:10px;}
+.messlist input{float:left;width:300px;height:28px;padding-left:5px;border:#ccc 1px solid;}
+.messlist.textareas{ height:auto;}
+.messlist textarea{float:left;width:400px; height:110px;padding:5px;border:#ccc 1px solid;}
+.messlist.yzms input{width:100px;}
+/*.messlist.yzms .yzmimg{ float:left;margin-left:10px;}*/
+.messsub{padding:0px 0 0 110px;}
+.messsub input{width:100px; height:35px; background:#ddd; font-size:14px; font-weight:bold; cursor:pointer;margin-right:5px}
+.messsub input:hover{ background:#f60;color:#fff;}
+
+.keleyitable {
+width: 800px;
+}
+
+.keleyitable table, td, th {
+border: 1px solid green;margin-top:10px;
+}
+.klytd {width:100px;text-align:right
+}
+.hvttd {
+width:500px}
+.code{
+            width: 400px;
+            margin:0 auto;
+        }
+.input-val{
+    width: 295px;
+    background: #ffffff;
+    height: 2.8rem;
+    padding: 0 2%;
+    border-radius: 5px;
+    border: none;
+    border: 1px solid rgba(0,0,0,.2);
+    font-size: 1.0625rem;
+}
+#canvas{
+    float:right;
+    display: inline-block;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}

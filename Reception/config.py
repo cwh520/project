@@ -1,7 +1,7 @@
 import os
 USERNAME = 'cwh'
 PASSWORD = '616263'
-HOST = '192.168.31.14'
+HOST = '118.25.70.84'
 RORT = '3306'
 DATABASE = 'GRBK'
 
