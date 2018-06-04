@@ -5,7 +5,7 @@
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
 
-        <title>{% block title %} {% endblock %}</title>
+        <title>欢迎来到小陈的博客</title>
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,44 +13,28 @@
 
         <meta name="description" content="FlexyCodes - FlexyCard vCard Template. Creating my personal page!"/>
 
-        <!-- CSS | bootstrap -->
-        <!-- Credits: http://getbootstrap.com/ -->
-        <link  rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/bootstrap.min.css") }}" />
-
-        <!-- CSS | font-awesome -->
-        <!-- Credits: http://fortawesome.github.io/Font-Awesome/icons/ -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/font-awesome.min.css") }}" />
-
-        <!-- CSS | animate -->
-        <!-- Credits: http://daneden.github.io/animate.css/ -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/animate.min.css") }}" />
-
-        <!-- CSS | Normalize -->
-        <!-- Credits: http://manos.malihu.gr/jquery-custom-content-scroller -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/jquery.mCustomScrollbar.css") }}" />
-
-        <!-- CSS | Colors -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/colors/DarkBlue.css") }}" id="colors-style" />
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/switcher.css") }}" />
-
-        <!-- CSS | Style -->
-        <!-- Credits: http://themeforest.net/user/FlexyCodes -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/main.css") }}" />
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/mycss.css") }}" />
-
-        <!-- CSS | prettyPhoto -->
-        <!-- Credits: http://www.no-margin-for-errors.com/ -->
-        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/prettyPhoto.css") }}"/>
-
-		<!-- CSS | Google Fonts -->
-{#        <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>#}
-        <!-- Favicon -->
-        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for("static",filename="images/favicon/favicon.ico") }}">
 
         <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <!--[if IE 7]
-                <link rel="stylesheet" type="text/css" href="css/icons/font-awesome-ie7.min.css"/>
-        <![endif]-->
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/font-awesome.min.css") }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/animate.min.css") }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/jquery.mCustomScrollbar.css") }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/colors/DarkBlue.css") }}" id="colors-style" />
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/switcher.css") }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/main.css") }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/mycss.css") }}" />
+
+        <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/prettyPhoto.css") }}"/>
+
+        <link rel="shortcut icon" type="image/x-icon" href="{{ url_for("static",filename="images/favicon/favicon.ico") }}">
+
+
 
         <style>
             @media only screen and (max-width : 991px){
@@ -94,7 +78,7 @@
         <div class="wrapper">
 
             <!--- .Content -->
-            <section class="tab-content">
+            <setion class="tab-content">
                 <div class="container">
 
                     <div class="row">
@@ -113,15 +97,15 @@
 
          <div class="image-holder one" id="pic_prof_1" style="display:block">
 
-                <img class="head-image up circle" src="{{ url_for("static",filename="images/img/up.png") }}" width="150" height="150" alt="" />
-                <img class="head-image up-left circle" src="{{ url_for("static",filename="images/img/upleft.png") }}" width="150" height="150" alt="" />
-                <img class="head-image left circle" src="{{ url_for("static",filename="images/img/left.png") }}" width="150" height="150" alt="" />
-                <img class="head-image down-left circle" src="{{ url_for("static",filename="images/img/downleft.png") }}" width="150" height="150" alt="" />
-                <img class="head-image down circle" src="{{ url_for("static",filename="images/img/down.png") }}" width="150" height="150" alt="" />
-                <img class="head-image down-right circle" src="{{ url_for("static",filename="images/img/downright.png") }}" width="150" height="150" alt="" />
-                <img class="head-image right circle" src="{{ url_for("static",filename="images/img/right.png") }}" width="150" height="150" alt="" />
-                <img class="head-image up-right circle" src="{{ url_for("static",filename="images/img/upright.png") }}" width="150" height="150" alt="" />
-                <img class="head-image front circle" src="{{ url_for("static",filename="images/img/front.png") }}" width="150" height="150" alt="" />
+                <img class="head-image up circle" src="" data-original="{{ url_for("static",filename="images/img/up.png") }}" width="150" height="150" alt="" />
+                <img class="head-image up-left circle" src="" data-original="{{ url_for("static",filename="images/img/upleft.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image left circle" src="" data-original="{{ url_for("static",filename="images/img/left.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image down-left circle" src="" data-original="{{ url_for("static",filename="images/img/downleft.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image down circle" src="" data-original="{{ url_for("static",filename="images/img/down.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image down-right circle" src="" data-original="{{ url_for("static",filename="images/img/downright.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image right circle" src="" data-original="{{ url_for("static",filename="images/img/right.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image up-right circle" src="" data-original="{{ url_for("static",filename="images/img/upright.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image front circle" src="" data-original="{{ url_for("static",filename="images/img/front.png") }}"  width="150" height="150" alt="" />
 
         </div>
 
@@ -147,7 +131,7 @@
         <!-- Profile Description -->
         <div id="profile_desc">
             <p>
-                一只热爱学习的程序员
+                <span style="text-align: center;">一只热爱学习新编程技能的程序猿</span>
             </p>
             <p>
 
@@ -196,7 +180,7 @@
 {#                                                <i class="fa fa-briefcase icon_menu"></i>#}
 {#                                            </li>#}
 
-                                            <li class="tabs-blog hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="blog">
+                                            <li name="blogs" class="tabs-blog hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="blog">
                                                <span class="tite-list">blog</span>
                                                 <i class="fa fa-bullhorn icon_menu"></i>
                                             </li>
@@ -207,7 +191,7 @@
 {#                                            </li>#}
 
                                             <a href="../static/jianli52481368875568984.pdf" id="print"><i class="fa fa-print icon_print"></i> </a>
-                                            <a href="#" id="downlowd"><i class="fa fa-download icon_print"></i> </a>
+                                            <a href="../static/jianli52481368875568984.pdf" id="downlowd"><i class="fa fa-download icon_print"></i> </a>
                                         </ul>
                                         <!-- /resp-tabs-list -->
 
@@ -238,27 +222,27 @@
 
                                                 <div class="skills">
                                                     <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="95%">
+                                                    <div class="skillbar clearfix" data-percent="80%">
                                                         <div class="skillbar-title"><span>Photoshop</span></div>
                                                         <div class="skillbar-bar"></div>
-                                                        <div class="skill-bar-percent">95%</div>
+                                                        <div class="skill-bar-percent">80%</div>
                                                     </div>
 
                                                     <!-- /.skillbar -->
 
                                                     <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="90%">
+                                                    <div class="skillbar clearfix" data-percent="70%">
                                                         <div class="skillbar-title"><span>Illustrateur</span></div>
                                                         <div class="skillbar-bar"></div>
-                                                        <div class="skill-bar-percent">90%</div>
+                                                        <div class="skill-bar-percent">70%</div>
                                                     </div>
                                                     <!-- /.skillbar -->
 
                                                     <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="65%">
+                                                    <div class="skillbar clearfix" data-percent="50%">
                                                         <div class="skillbar-title"><span>Indesign</span></div>
                                                         <div class="skillbar-bar"></div>
-                                                        <div class="skill-bar-percent">65%</div>
+                                                        <div class="skill-bar-percent">50%</div>
                                                     </div>
                                                     <!-- /.skillbar -->
 
@@ -281,7 +265,7 @@
 
                                                 <div class="skills">
                                                     <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="85%">
+                                                    <div class="skillbar clearfix" data-percent="70%">
                                                         <div class="skillbar-title"><span>Python</span></div>
                                                         <div class="skillbar-bar"></div>
                                                         <div class="skill-bar-percent">70%</div>
@@ -289,7 +273,7 @@
                                                     <!-- /.skillbar -->
 
                                                     <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="75%">
+                                                    <div class="skillbar clearfix" data-percent="70%">
                                                         <div class="skillbar-title"><span>Flask</span></div>
                                                         <div class="skillbar-bar"></div>
                                                         <div class="skill-bar-percent">70%</div>
@@ -297,7 +281,7 @@
                                                     <!-- /.skillbar -->
 
                                                     <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="60%">
+                                                    <div class="skillbar clearfix" data-percent="70%">
                                                         <div class="skillbar-title"><span>Mysql</span></div>
                                                         <div class="skillbar-bar"></div>
                                                         <div class="skill-bar-percent">70%</div>
@@ -305,7 +289,7 @@
                                                     <!-- /.skillbar -->
 
                                                      <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="89%">
+                                                    <div class="skillbar clearfix" data-percent="70%">
                                                         <div class="skillbar-title"><span>Redis</span></div>
                                                         <div class="skillbar-bar"></div>
                                                         <div class="skill-bar-percent">70%</div>
@@ -313,8 +297,15 @@
                                                     <!-- /.skillbar -->
 
                                                     <!-- .skillbar -->
-                                                    <div class="skillbar clearfix" data-percent="89%">
+                                                    <div class="skillbar clearfix" data-percent="70%">
                                                         <div class="skillbar-title"><span>Scrapy</span></div>
+                                                        <div class="skillbar-bar"></div>
+                                                        <div class="skill-bar-percent">70%</div>
+                                                    </div>
+                                                    <!-- /.skillbar -->
+ <!-- .skillbar -->
+                                                    <div class="skillbar clearfix" data-percent="70%">
+                                                        <div class="skillbar-title"><span>Flask-Sqlalchemy</span></div>
                                                         <div class="skillbar-bar"></div>
                                                         <div class="skill-bar-percent">70%</div>
                                                     </div>
@@ -434,7 +425,7 @@
                                                 <!-- /.title_content -->
 
                                                 <!-- .download_resume -->
-                                                <a class="download" style="margin:0;float: left;" href="#">
+                                                <a class="download" style="margin:0;float: left;" href="../static/jianli52481368875568984.pdf">
                                                     <span data-hover="下载 我的 简历"><i class="glyphicon glyphicon-download-alt"></i> Download My Resume</span>
                                                 </a>
                                                 <!-- /.download_resume -->
@@ -457,8 +448,9 @@
                                                 <ul class="attributes">
                                                     <li class="first">
                                                         <h5>个人博客<span class="duration"><i class="fa fa-calendar color"></i> 2018.1 - 2018.2</span></h5>
-                                                        <h6><span class="fa fa-briefcase"></span></h6>
-                                                        <p></p>
+                                                        <h6><span class="fa fa-briefcase"></span></h6><p>
+该项目是在学习python flask框架期间个人独立完成的一个实践项目，一期主要完成个人信息页面的数据呈现，掌握技能页面的数据呈现，以及博客文章的呈现，以及后台文章发布，留言的管理，等模块，主要运用的技术有flask、ajax、jquery、flask-sqlalchemy、mysql、redis等技术                                                        
+</p>
 
                                                 </ul>
                                                 <!-- /.attributes -->
@@ -481,7 +473,7 @@
                                                     <li>
                                                         <h5>web 应用开发 <span class="duration"><i class="fa fa-calendar color"></i> 2016 - 2017</span></h5>
                                                         <h6><span class="fa fa-book"></span> 湖北银河信息技术学校</h6>
-                                                        <p></p>
+                                                        <p>培训期间主要学习了flask框架，scrapy框架，还有 SQLAlchem，redis数据缓存，sql server数据库， 前台主要学习了jquery、JavaScript、bootstrap、ajax等技术</p>
                                                     </li>
                                                 </ul>
                                                 <!-- /.attributes -->
@@ -647,24 +639,24 @@
                                                                                                 <div class="carousel-inner">
 
                                                                                                     <div class="item next left">
-                                                                                                        <img src="{{ url_for("static",filename="images/blog/1.jpg") }}" alt="">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-1.jpg") }}">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
-                                                                                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                                                                                            <p></p>
                                                                                                         </div>
                                                                                                     </div>
 
 
                                                                                                     <div class="item">
-                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-2.jpg") }}" alt="">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-2.jpg") }}">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
-                                                                                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                                                                                                            <p></p>
                                                                                                         </div>
                                                                                                     </div>
 
                                                                                                     <div class="item active left">
-                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-3.jpg") }}" alt="">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-3.jpg") }}">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -723,10 +715,7 @@
 
 
                                                                 </section>
-
-
-
-
+  <button class="load" >加载更多>></button>
 
                                                              {% for item in article %}
                                                                  {% if loop.index % 2 !=0 %}
@@ -755,7 +744,7 @@
                                                                                                 <div class="carousel-inner">
 
                                                                                                     <div class="item active">
-                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-1.jpg") }}" alt="">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-1.jpg") }}">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -764,7 +753,7 @@
 
 
                                                                                                     <div class="item">
-                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-2.jpg") }}" alt="">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-2.jpg") }}" >
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -772,7 +761,7 @@
                                                                                                     </div>
 
                                                                                                     <div class="item">
-                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-3.jpg") }}" alt="">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-3.jpg") }}">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -1002,25 +991,6 @@
 
                                                             </div>
 
-
-                                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                                                                <div class="modal-dialog modal-sm">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header">
-                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                                            <h3 class="modal-title h3_modal" style="color: #fff !important;">FlexyVcard - Responsive Vcard Template</h3>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <p>FlexyVcard is an impressive and professional online vcard, a beautiful portfolio with sliding effect, resume and contact information with Google map.</p>
-                                                                            <p>It’s simple! Just download and install in a few minutes, you can show your online card to your friend, customer or employer in an interview by phone or tablet. Because FlexyVcard is a responsive template, you can view your website on pc as well as handheld devices. You can also link to your social profiles, display your portfolio in many media format such as image, youtube video, flash...</p>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-
                                                         </div>
                                                     </div>
                                             </div>
@@ -1145,7 +1115,7 @@
 
                 </div><!-- End container -->
 
-            </section>
+            </setion>
             <!-- End Content -->
 
         </div>
@@ -1213,8 +1183,8 @@
 
                     <select name="one" class="dropdown-select">
                         <optgroup label="Bouncing Entrances">
-                            <option value="bounceIn" selected>bounceIn</option>
-                            <option value="bounceInDown">bounceInDown</option>
+                            <option value="bounceIn">bounceIn</option>
+                            <option value="bounceInDown" selected>bounceInDown</option>
                             <option value="bounceInLeft">bounceInLeft</option>
                             <option value="bounceInRight">bounceInRight</option>
                             <option value="bounceInUp">bounceInUp</option>
@@ -1236,10 +1206,10 @@
 
                     <div class="clean-check">
 
-						<input type="radio" id="s1" name="layout" value="bg_color" checked="checked" />
+						<input type="radio" id="s1" name="layout" checked="checked" value="bg_color" />
                         <label for="s1"><span></span>颜色</label>
 
-                        <input type="radio" id="s2" name="layout" value="bg_slider" />
+                        <input type="radio" id="s2" name="layout"   value="bg_slider" />
                         <label for="s2"><span></span>动画</label>
 
                     </div>
@@ -1278,53 +1248,13 @@
 
         <!-- jquery | jQuery 1.11.0 -->
         <!-- Credits: http://jquery.com -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.min.js") }}"></script>
-
-        <!-- Js | bootstrap -->
-        <!-- Credits: http://getbootstrap.com/ -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/bootstrap.min.js") }}"></script>
-
-        <!-- Js | jquery.cycle -->
-        <!-- Credits: https://github.com/malsup/cycle2 -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.cycle2.min.js") }}"></script>
-
-        <!-- jquery | rotate and portfolio -->
-        <!-- Credits: http://jquery.com -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.mixitup.min.js") }}"></script>
-        <script type="text/javascript" src="{{ url_for("static",filename="js/HeadImage.js") }}"></script>
-
-        <!-- Js | easyResponsiveTabs -->
-        <!-- Credits: http://webtrendset.com/demo/easy-responsive-tabs/Index.html -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/easyResponsiveTabs.min.js") }}"></script>
-
-        <!-- Js | jquery.cookie -->
-        <!-- Credits: https://github.com/carhartl/jquery-cookie -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/jsSwitcher/jquery.cookie.js") }}"></script>
-
-        <!-- Js | switcher -->
-        <!-- Credits: http://themeforest.net/user/FlexyCodes -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/jsSwitcher/switcher.js") }}"></script>
-
-        <!-- Js | mCustomScrollbar -->
-        <!-- Credits: http://manos.malihu.gr/jquery-custom-content-scroller -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.mCustomScrollbar.concat.min.js") }}"></script>
-
+        <script type="text/javascript" src="../static/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../static/js/alll.js"></script>
+        <script type="text/javascript" src="../static/js/tuupola-jquery_lazyload/jquery.lazyload.js"></script>
+        <script type="text/javascript" src="../static/js/myjs.js"></script>
         <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-        <!-- jquery | prettyPhoto -->
-        <!-- Credits: http://www.no-margin-for-errors.com/ -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/jquery.prettyPhoto.js") }}"></script>
 
-         <script type="text/javascript" src="{{ url_for("static",filename="layer-v3.1.1/layer/layer.js") }}"></script>
-        <!-- Js | gmaps -->
-        <!-- Credits: http://maps.google.com/maps/api/js?sensor=true
-
-        <script type="text/javascript" src="{{ url_for("static",filename="js/gmaps.min.js") }}"></script>
-
- 		<!-- Js | Js -->
-        <!-- Credits: http://themeforest.net/user/FlexyCodes -->
-        <script type="text/javascript" src="{{ url_for("static",filename="js/main.js") }}"></script>
-
-        <!-- code js for image rotate -->
+         code js for image rotate -->
         <script type="text/javascript">
 
             var mouseX;
@@ -1370,11 +1300,33 @@
             }
 
         </script>
+       <script>
+            $(function() {
+                  $("img").lazyload({
+                              placeholder : "../static/images/bg/bg1.png", //用图片提前占位
+                                // placeholder,值为某一图片路径.此图片用来占据将要加载的图片的位置,待图片加载时,占位图则会隐藏
+                              effect: "fadeIn", // 载入使用何种效果
+                                // effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
+                              threshold: 200, // 提前开始加载
+                                // threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉
+                              //event: 'click',  // 事件触发时才加载
+                                // event,值有click(点击),mouseover(鼠标划过),sporty(运动的),foobar(…).可以实现鼠标莫过或点击图片才开始加载,后两个值未测试…
+                              //container: $("#container"),  // 对某容器中的图片实现效果
+                                // container,值为某容器.lazyload默认在拉动浏览器滚动条时生效,这个参数可以让你在拉动某DIV的滚动条时依次加载其中的图片
+                              failurelimit : 10 // 图片排序混乱时
+                                 // failurelimit,值为数字.lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况,failurelimit意在加载N张可见区域外的图片,以避免出现这个问题.
+                            });
+              });
+       </script>
+        <script>
+          $(function() {
+             {#$("#blog").scroll(function() {#}
+             {#     console.log()#}
+             {#   });#}
 
+          });
+        </script>
 
-        <!--[if lt IE 9]
-            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-        [endif]-->
     </body>
 </html>
 <script>
@@ -1406,7 +1358,7 @@
 
       $('[name="read"]').click(function(){
           var id = $(this).attr("abc")
-          console.log(id)
+          //console.log(id)
           $(".comments").empty()
           $.ajax({
           url: "{{ url_for("getcomment") }}",
@@ -1532,7 +1484,7 @@
                contentType: "application/json",
                data:'{"id":"'+id+'","name":"'+name+'","email":"'+email+'","message":"'+message+'"}',
                success:function (result) {
-                   console.log(result)
+                   //console.log(result)
                    if(result['code'] ==200){
                       var data = result["content"]
                       var  html = '<div class="comment">'+
@@ -1599,5 +1551,14 @@ function wordStatic(input) {
 
 
 
-
 </script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?b76d9b1d90e75d4e45af45f09f029543";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+

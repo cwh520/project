@@ -113,9 +113,9 @@ jQuery(document).ready(function($) {
         return false;
     });
 
-    $("#verticalTab h2.resp-accordion").click(function() {
-        initialize();
-    });
+    // $("#verticalTab h2.resp-accordion").click(function() {
+    //     initialize();
+    // });
 
     /* ---------------------------------------------------------------------- */
     /* ---------------------- redimensionnement ----------------------------- */
@@ -150,9 +150,9 @@ jQuery(document).ready(function($) {
     window.addEventListener('load', redimensionnement, false);
     window.addEventListener('resize', redimensionnement, false);
 
-    $("#verticalTab h2.resp-accordion").click(function() {
-        initialize();
-    });
+    // $("#verticalTab h2.resp-accordion").click(function() {
+    //     initialize();
+    // });
 
     /* ---------------------------------------------------------------------- */
     /* -------------------------- Contact Form ------------------------------ */
@@ -290,7 +290,7 @@ jQuery(document).ready(function($) {
     /* ------------------------------ Google Maps --------------------------- */
     /* ---------------------------------------------------------------------- */
 
-    var map;
+    /*var map;
     function initialize() {
         map = new GMaps({
             div: '#map',
@@ -308,7 +308,7 @@ jQuery(document).ready(function($) {
                 content: '<p>Melbourne Victoria, 300, Australia</p>'
             }
         });
-    }
+    }*/
 
     /* ---------------------------------------------------------------------- */
     /* --------------------------------- Blog ------------------------------- */

@@ -1,7 +1,6 @@
-.blog-content{
-    overflow : hidden;
-    text-overflow: ellipsis;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-}
+
+
+.load{color: #333;text-decoration: none;}
+.load{display: block;width: 80px;padding:8px 0;color:#fff;margin:0 auto;background:#333;text-align:center;border-radius:3px;}
+.load:hover{text-decoration: none;background: red;color: #fff;}
+

@@ -1,4 +1,4 @@
-document.write('<script type="text/javascript"  src=“{{ url_for("static",filename="/js/jsSwitcher/jquery.cookie.js") }}”></script>');
+document.write('<script type="text/javascript"  src="../static/js/jsSwitcher/jquery.cookie.js") }}”></script>');
 
 /*-----------------------------------------------------------------------------------
  /* Styles Switcher
@@ -174,7 +174,7 @@ jQuery(document).ready(function($) {
     $('#custumize-style h2 a').click(function(e) {
         e.preventDefault();
         var div = $('#custumize-style');
-        console.log(div.css('left'));
+        //console.log(div.css('left'));
         if (div.css('left') === '-270px') {
             $('#custumize-style').animate({
                 left: '0px'

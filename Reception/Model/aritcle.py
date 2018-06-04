@@ -1,6 +1,7 @@
 import MysqlModel
 from MysqlModel import db
 from flask import g,jsonify,json
+from flask_sqlalchemy import BaseQuery
 from sqlalchemy import func
 
 
@@ -9,10 +10,10 @@ model = MysqlModel
 class ArticleModel(object):
     # 获取所有的所有的文章
 
-    def GetAll(self):
-        article = model.Article.query.filter(model.Article.state == "显示").order_by(model.Article.title.asc()).all()
+    def GetAll(self,page_index=1,page_size=2): #.paginate(int(page_index), int(page_size),False)0
+        article = model.Article.query.filter(model.Article.state == "显示").order_by(model.Article.time.asc()).paginate(int(page_index), int(page_size),False)
         Data = []
-        for item in article:
+        for item in article.items:
             data = {
                 "id": item.id,
                 "title": item.title,
@@ -20,12 +21,18 @@ class ArticleModel(object):
                 "author": item.author,
                 "state": item.state,
                 "time": item.time.strftime('%Y-%m-%d %H:%M:%S'),
-                "bfcontent": item.bfcontent[:200]+'……',
+                "bfcontent": item.bfcontent[:180]+'………',
                 "label":self.Getalllable(item.id),
                 "comment":self.Countcomment(item.id)
             }
             Data.append(data)
         return Data
+
+
+    def Countarticle(self, page_size=2):
+        article = model.Article.query.filter(model.Article.state == "显示").count()
+        page_index = article // page_size + 1  # 所有文章数除以每页显示数+1
+        return page_index
 
      # 统计所有留言
 
@@ -33,10 +40,7 @@ class ArticleModel(object):
         data = db.session.query(func.count(model.Comment.content)).filter(model.Comment.article_on == id).first()
         return data[0]
 
-    # def func(strs):
-    #     if len(strs) > 180:
-    #         strs = strs[:180] + '***'
-    #         return strs
+
 
             # 获取所有的标签
     def Getalllable(self,id):
