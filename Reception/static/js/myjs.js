@@ -36,7 +36,7 @@ $(".load").click(function () {
     '                                            <div class="carousel-inner">' +
     '' +
     '                                                <div class="item active">' +
-    '                                                    <img src="" data-original="../static/images/blog/blog-1.jpg" alt="" />' +
+    '                                                    <404img src="" data-original="../static/images/blog/blog-1.jpg" alt="" />' +
     '                                                    <div class="carousel-caption">' +
     '                                                        <h4>First Thumbnail label</h4>' +
     '                                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>' +
@@ -45,7 +45,7 @@ $(".load").click(function () {
     '' +
     '' +
     '                                                <div class="item">' +
-    '                                                    <img src="" data-original="../static/images/blog/blog-2.jpg"  alt="" />' +
+    '                                                    <404img src="" data-original="../static/images/blog/blog-2.jpg"  alt="" />' +
     '                                                    <div class="carousel-caption">' +
     '                                                        <h4>First Thumbnail label</h4>' +
     '                                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>' +
@@ -53,7 +53,7 @@ $(".load").click(function () {
     '                                                </div>' +
     '' +
     '                                                <div class="item">' +
-    '                                                    <img src="" data-original="../static/images/blog/blog-3.jpg"  alt="" />' +
+    '                                                    <404img src="" data-original="../static/images/blog/blog-3.jpg"  alt="" />' +
     '                                                    <div class="carousel-caption">' +
     '                                                        <h4>First Thumbnail label</h4>' +
     '                                                        <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>' +
@@ -83,7 +83,7 @@ $(".load").click(function () {
     '                                    <div class="top_c ">' +
     '' +
     '                                        <div class="title_content">' +
-    '                                            <div class="text_content"><a href="#post-'+(page_index*2-1)+'" class="read_more">'+datas[0]["title"]+'</a></div>' +
+    '                                            <div class="text_content"><a href="#post-'+(page_index*2-1)+'" abc="'+datas[0]["id"]+'" class="read_more">'+datas[0]["title"]+'</a></div>' +
     '                                            <div class="clear"></div>' +
     '                                        </div>' +
     '' +
@@ -99,7 +99,7 @@ $(".load").click(function () {
     '                                    </div>' +
     '                                </div>\t' +
     '' +
-    '                                <a href="#post-'+(page_index*2-1)+'" class="read_m pull-right">阅读 文章<i class=\'glyphicon glyphicon-chevron-right\'></i></a>' +
+    '                                <a href="#post-'+(page_index*2-1)+'" name="read" abc="'+datas[0]["id"]+'" class="read_m pull-right">阅读 文章<i class=\'glyphicon glyphicon-chevron-right\'></i></a>' +
     '' +
     '                            </div>' +
     '                        </div>' +
@@ -135,7 +135,7 @@ $(".load").click(function () {
     '                                                                                                <div class="carousel-inner">' +
     '' +
     '                                                                                                    <div class="item active">' +
-    '                                                                                                        <img src="" data-original="../static/images/blog/blog-1.jpg">' +
+    '                                                                                                        <404img src="" data-original="../static/images/blog/blog-1.jpg">' +
     '                                                                                                        <div class="carousel-caption">' +
     '                                                                                                            <h4>First Thumbnail label</h4>' +
     '                                                                                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>' +
@@ -144,7 +144,7 @@ $(".load").click(function () {
     '' +
     '' +
     '                                                                                                    <div class="item">' +
-    '                                                                                                        <img src="" data-original=../static/images/blog/blog-2.jpg" >' +
+    '                                                                                                        <404img src="" data-original=../static/images/blog/blog-2.jpg" >' +
     '                                                                                                        <div class="carousel-caption">' +
     '                                                                                                            <h4>First Thumbnail label</h4>' +
     '                                                                                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>' +
@@ -152,7 +152,7 @@ $(".load").click(function () {
     '                                                                                                    </div>' +
     '' +
     '                                                                                                    <div class="item">' +
-    '                                                                                                        <img src="" data-original="../static/images/blog/blog-3.jpg">' +
+    '                                                                                                        <404img src="" data-original="../static/images/blog/blog-3.jpg">' +
     '                                                                                                        <div class="carousel-caption">' +
     '                                                                                                            <h4>First Thumbnail label</h4>' +
     '                                                                                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>' +
@@ -269,7 +269,7 @@ $(".load").click(function () {
     '                                    <div class="top_c ">' +
     '' +
     '                                        <div class="title_content">' +
-    '                                            <div class="text_content"><a href="#post-'+(page_index*2)+'" class="read_more">'+datas[1]["title"]+'</a></div>' +
+    '                                            <div class="text_content"><a href="#post-'+(page_index*2)+'" abc="'+datas[1]["id"]+'" class="read_more">'+datas[1]["title"]+'</a></div>' +
     '                                            <div class="clear"></div>' +
     '                                        </div>' +
     '' +
@@ -285,7 +285,7 @@ $(".load").click(function () {
     '                                    </div>' +
     '                                </div>\t' +
     '' +
-    '                                <a href="#post-'+(page_index*2)+'" class="read_m pull-right">阅读 文章 <i class=\'glyphicon glyphicon-chevron-right\'></i></a>' +
+    '                                <a href="#post-'+(page_index*2)+'" name="read" abc="'+datas[1]["id"]+'" class="read_m pull-right">阅读 文章 <i class=\'glyphicon glyphicon-chevron-right\'></i></a>' +
     '' +
     '                            </div>' +
     '                        </div>' +
@@ -393,7 +393,273 @@ $(".load").click(function () {
             '                                                                </section>'
     }
     $("#blog_page").append(htmls)
-    $("#blog-page").append(html)
+    $(".load").before(html)
+                 /* --------------------------------- Blog ------------------------------- */
+    /* ---------------------------------------------------------------------- */
+
+    // More blog
+    $('a.read_m').click(function() {
+        var pagina = $(this).attr('href');
+        var postdetail = pagina + '-page';
+
+        if (pagina.indexOf("#post-") != -1) {
+
+            $('#blog-page').hide();
+
+            $(postdetail).show();
+            $(".tabs-blog").trigger('click');
+        }
+
+        return false;
+
+    });
+
+    // More blog
+    $('a.read_more').click(function() {
+        var pagina = $(this).attr('href');
+        var postdetail = pagina + '-page';
+
+        if (pagina.indexOf("#post-") != -1) {
+
+            $('#blog-page').hide();
+
+            $(postdetail).show();
+            $(".tabs-blog").trigger('click');
+        }
+
+        return false;
+
+    });
+
+    //pagination All
+    $('.content-post a').click(function() {
+        var pagina = $(this).attr('href');
+
+        if (pagina == "#blog") {
+
+            $('.content-post').hide();
+            $('#blog-page').show();
+            $(".tabs-blog").trigger('click');
+
+        }
+
+        return false;
+
+    });
+
+    //pagination blog
+    $('.content-post #pagination').click(function() {
+
+
+        var pagina = $(this).attr('href');
+        var postdetail = pagina + '-page';
+
+        if (pagina.indexOf("#post-") != -1) {
+
+            $('#blog-page').hide();
+            $('.content-post').hide();
+
+            $(postdetail).show();
+            $(".tabs-blog").trigger('click');
+        }
+
+        return false;
+
+    });
+
+      var re='<div class="comment_form" name=replys>'+
+                '<div class="title_content">'+
+                    '<div class="text_content">评论回复</div>'+
+                    '<div class="clear"></div>'+
+               '</div>'+
+                '<div id="comment_form">'+
+                    '<p class="form-group" id="contact-name">'+
+                        '<label for="name">你的 昵称</label>'+
+                        '<input type="text" name="name" class="form-control" id="inputSuccess" placeholder="Name*...">'+
+                    '</p>'+
+                    '<p class="form-group" id="contact-email">'+
+                        '<label for="email">你的 邮箱</label>'+
+                        '<input type="email" name="email"  class="span3 form-control" id="inputSuccess" placeholder="Email*... "required>'+
+                    '</p>'+
+                    '<p class="form-group" id="contact-message">'+
+                        '<label for="message">内容 </label>'+
+                        '<textarea name="message" cols="88" rows="6" onkeyup="wordStatic(this);" class="form-control" id="inputError" placeholder="请保持字数在32位以上"></textarea>'+
+                        '<div class="weui_textarea_counter"><span id="num">0</span>/500</div> '+
+                    '</p>'+
+                    '<input type="reset" name="reset" value="取 消" class="reset">'+
+                   ' <button class="submit" id="submit" data-target=".bs-example-modal-sm">回 复 </button>'+
+                '</div>'+
+                '<div class="clear"></div>'+
+            '</div>'
+
+      $('[name="read"],.text_content a').click(function(){
+          var id = $(this).attr("abc")
+          //console.log(id)
+          $(".comments").empty()
+          $.ajax({
+          url: "/getcomment",
+          type: "POST",
+          contentType: "application/json",
+          data: '{"id":"'+id+'"}',
+          success: function (rep) {
+              //console.log(rep)
+              if (rep["code"] == 200){
+                  $(".comments").empty()
+                  $(".comments").append(rep["content"])
+                // 回复留言
+               $(".reply").unbind().click(function () {
+                    var id = $(this).attr("abc")
+                    var zj =$(this).parents(".comment")
+                    zj.append(re)
+                    $("#submit").unbind().click(function(){
+                        var name = $('[name="name"]').val()
+                        var email = $('[name="email"]').val()
+                        var message = $('[name="message"]').val()
+                        if(name == ""){
+                              layer.msg("昵称不能为空")
+                              return false
+                           }
+                           if(email.trim()  == ""){
+                              layer.msg("邮箱不能为空")
+                              return false
+                           }
+
+                           if(message.trim() == ""){
+                              layer.msg("内容不能为空")
+                              return false
+                           }
+                           if(message.trim().length <= 32){
+                              layer.msg("内容字数不够")
+                              return false
+                           }
+                            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                                if(!myreg.test(email.trim())){
+                                    layer.msg("邮箱格式不正确")
+                                    return false;
+                                }
+                          $.ajax({
+                               url:"/replys",
+                               type:"POST",
+                               contentType: "application/json",
+                               data:'{"id":"'+id+'","name":"'+name+'","email":"'+email+'","message":"'+message+'"}',
+                               success:function(data){
+                                   if(data['code']==200){
+                                       $('[name="replys"]').remove()
+                                       var da = data['content']
+                                       var html ='<div class="comment sub">'+
+                                                ' <404img src="'+da.pic+'" alt="404img" width="100" height="100">'+
+                                                ' <div class="text">'+
+                                                ' <div class="name">'+da.nickname+' <a class="reply" abc="'+da.id+'" href="#">回 复</a></div>'+
+                                                '<div class="date">'+da.time+'</div>'+da.content+''+
+                                                '</div>'+
+                                                ' <div class="clear"></div>'+
+                                                ' </div>'+
+                                                ' <div class="clear"></div>'
+                                       zj.append(html)
+
+
+                                   }
+
+
+                               }
+                          })
+
+
+
+                   })
+                     // 取消回复
+                    $(".reset").unbind().click(function () {
+                      $('[name="replys"]').remove()
+                    })
+
+
+
+               })
+
+
+
+              }
+
+          }
+
+
+      })
+
+
+
+
+      })
+
+      $(".submit").unbind().click(function () {
+          var index= $(this).attr("index")
+          var  id =$(this).attr("abc")
+          var name = $('[name="name_'+ index+'"]').val()
+          var email = $('[name="email_'+ index+'"]').val()
+          var message = $('[name="message_'+index+'"]').val()
+           if(name == ""){
+              layer.msg("昵称不能为空")
+              return false
+           }
+           if(email == ""){
+              layer.msg("邮箱不能为空")
+              return false
+           }
+
+           if(message == ""){
+              layer.msg("内容不能为空")
+              return false
+           }
+            var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+                if(!myreg.test(email.trim())){
+                    layer.msg("邮箱格式不正确")
+                    return false;
+                }
+           $.ajax({
+               url:"/comment",
+               type:"POST",
+               contentType: "application/json",
+               data:'{"id":"'+id+'","name":"'+name+'","email":"'+email+'","message":"'+message+'"}',
+               success:function (result) {
+                   //console.log(result)
+                   if(result['code'] ==200){
+                      var data = result["content"]
+                      var  html = '<div class="comment">'+
+                                   '<404img src="'+data['pic']+'" alt="404img" width="100" height="100">'+
+                                   '<div class="text">'+
+                                   '<div class="name">' + data['nickname'] + ' </div>'+
+                                   '<div class="date">' + data['time'] + '</div>'+
+                                   ' '+ data['content']+''+
+                                   '</div>' +
+                                   '<div class="clear"></div>'+
+                                   '</div>'
+
+                       $(".comments").append(html)
+                       $('[name="name_'+ index+'"]').val("")
+                       $('[name="email_'+ index+'"]').val("")
+                       $('[name="message_'+index+'"]').val("")
+                   }
+
+               }
+
+           })
+
+
+      })
+
+      $(".reset").click(function(){
+          var index= $(this).attr("index")
+              $('[name="name_'+ index+'"]').val("")
+              $('[name="email_'+ index+'"]').val("")
+              $('[name="message_'+index+'"]').val("")
+
+     })
+
+
+
+
+
+
+    /* ---------------------------------------------------------------------- */
             }
             else{
                 $(".load").text("没有文章了！！").attr("disabled","disabled")

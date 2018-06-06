@@ -5,7 +5,8 @@ HOST = '118.25.70.84'
 RORT = '3306'
 DATABASE = 'GRBK'
 
-SQLALCHEMY_DATABASE_URL = "mysql+pymysql://{}:{}@{}:{}/{}?charset=utf8".format(USERNAME,PASSWORD,HOST,RORT,DATABASE)
+SQLALCHEMY_DATABASE_URL = "mysql+pymysql://{}:{}@{}:{}/{}?" \
+                          "charset=utf8".format(USERNAME,PASSWORD,HOST,RORT,DATABASE)
 
 config = {
     'CACHE_TYPE': 'redis',

@@ -57,7 +57,7 @@ class ArticleModel(object):
             g.html = ''
             for item in data:
                 html = '<div class="comment">'
-                html += '<img src="'+item.pic+'" alt="img" width="100" height="100">'\
+                html += '<404img src="'+item.pic+'" alt="404img" width="100" height="100">'\
                         '<div class="text">'\
                         '<div class="name">' + item.nickname + ' <a class="reply" abc="'+str(item.id)+'" href="#">回 复</a></div>'\
                         '<div class="date">' + item.time.strftime('%Y-%m-%d %H:%M:%S') + '</div> '+item.content+''\
@@ -65,7 +65,7 @@ class ArticleModel(object):
                         '<div class="clear"></div>'
                 for i in self.Getreply(item.id):
                     html += '<div class="comment sub">'\
-                            ' <img src="'+i.pic+'" alt="img" width="100" height="100">'\
+                            ' <404img src="'+i.pic+'" alt="404img" width="100" height="100">'\
                             ' <div class="text">'\
                             ' <div class="name">'+i.nickname+' </div>'\
                             '<div class="date">'+i.time.strftime('%Y-%m-%d %H:%M:%S')+'</div>'+i.content+''\

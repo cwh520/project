@@ -29,6 +29,7 @@
                                     <th>昵称</th>
                                     <th>邮箱</th>
                                     <th>内容</th>
+                                    <th>头像</th>
                                     <th>状态</th>
                                     <th>时间</th>
                                     <th>操作</th>
@@ -97,7 +98,15 @@ $(document).ready(function() {
             "targets": 5,
             "render": function ( data, type, row ) {
                     return '<img width="80" height="80"  src="'+data+'" class="img-rounded">'
-                },
+                }
+            },{
+            "targets": 6,
+            "render": function ( data, type, row ) {
+                    if (data =="屏蔽")
+                        return '<span style="color: red">'+data+'</span>'
+                    else
+                        return data
+                }
 
         }
         ]

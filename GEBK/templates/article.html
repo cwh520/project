@@ -146,6 +146,15 @@ $(document).ready(function() {
             "targets": 2,
             "data": null,
             "defaultContent": "......"
+        },{
+            "targets": 4,
+            "render": function ( data, type, row ) {
+                    if (data =="屏蔽")
+                        return '<span style="color: red">'+data+'</span>'
+                    else
+                        return data
+                },
+
         }
         ]
     } );

@@ -134,8 +134,15 @@ $(document).ready(function() {
             "data": null,
             "defaultContent": '<button class="btn btn-info edit" >编辑</button>'+'&nbsp;'+
                 '<button class="btn btn-success select" >修改状态</button>'
-        }
-        ]
+        },{
+            "targets": 3,
+            "render": function ( data, type, row ) {
+                    if (data =="屏蔽")
+                        return '<span style="color: red">'+data+'</span>'
+                    else
+                        return data
+                }
+        }]
     } );
 
     $('#example tbody').on( 'click', 'button', function () {

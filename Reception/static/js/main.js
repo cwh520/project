@@ -257,11 +257,11 @@ jQuery(document).ready(function($) {
             $('#portfoliolist .portfolio').hover(
                     function() {
                         $(this).find('.label').stop().animate({bottom: 0}, 200);
-                        $(this).find('img').stop().animate({top: -30}, 500);
+                        $(this).find('404img').stop().animate({top: -30}, 500);
                     },
                     function() {
                         $(this).find('.label').stop().animate({bottom: -40}, 200);
-                        $(this).find('img').stop().animate({top: 0}, 300);
+                        $(this).find('404img').stop().animate({top: 0}, 300);
                     }
             );
 

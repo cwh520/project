@@ -18970,7 +18970,7 @@ UE.plugins['video'] = function (){
                     html.push('</tr>')
                 }
                 //禁止指定table-width
-                return '<table><tbody>' + html.join('') + '</tbody></table>'
+                return '<table border="1" cellpadding="0" cellspacing="0"  ><tbody>' + html.join('') + '</tbody></table>'
             }
 
             if (!opt) {
@@ -19989,9 +19989,9 @@ UE.plugins['table'] = function () {
                 'table.noBorderTable td,table.noBorderTable th,table.noBorderTable caption{border:1px dashed #ddd !important}' +
                 //插入的表格的默认样式
                 'table{margin-bottom:10px;border-collapse:collapse;display:table;}' +
-                'td,th{padding: 5px 10px;border: 1px solid #DDD;}' +
+                'td,th{padding: 5px 10px;border: 1px dashed #DDD;}' +
                 'caption{border:1px dashed #DDD;border-bottom:0;padding:3px;text-align:center;}' +
-                'th{border-top:1px solid #BBB;background-color:#F7F7F7;}' +
+                'th{border-top:1px dashed #BBB;background-color:#F7F7F7;}' +
                 'table tr.firstRow th{border-top-width:2px;}' +
                 '.ue-table-interlace-color-single{ background-color: #fcfcfc; } .ue-table-interlace-color-double{ background-color: #f7faff; }' +
                 'td p{margin:0;padding:0;}', me.document);
@@ -20239,7 +20239,7 @@ UE.plugins['table'] = function () {
                 } else {
                     utils.each(tables, function (table) {
                         removeStyleSize(table, true);
-                        domUtils.removeAttributes(table, ['style', 'border']);
+                        domUtils.removeAttributes(table, ['style']);
                         utils.each(domUtils.getElementsByTagName(table, "td"), function (td) {
                             if (isEmptyBlock(td)) {
                                 domUtils.fillNode(me.document, td);

@@ -11,30 +11,43 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
-        <meta name="description" content="FlexyCodes - FlexyCard vCard Template. Creating my personal page!"/>
+        
+      
 
-
-        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
+        <!-- CSS | font-awesome -->
+        <!-- Credits: http://fortawesome.github.io/Font-Awesome/icons/ -->
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/font-awesome.min.css") }}" />
 
+        <!-- CSS | animate -->
+        <!-- Credits: http://daneden.github.io/animate.css/ -->
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/animate.min.css") }}" />
 
+        <!-- CSS | Normalize -->
+        <!-- Credits: http://manos.malihu.gr/jquery-custom-content-scroller -->
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/jquery.mCustomScrollbar.css") }}" />
 
+        <!-- CSS | Colors -->
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/colors/DarkBlue.css") }}" id="colors-style" />
-
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/switcher.css") }}" />
 
+        <!-- CSS | Style -->
+        <!-- Credits: http://themeforest.net/user/FlexyCodes -->
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/main.css") }}" />
-
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/mycss.css") }}" />
 
+        <!-- CSS | prettyPhoto -->
+        <!-- Credits: http://www.no-margin-for-errors.com/ -->
         <link rel="stylesheet" type="text/css" href="{{ url_for("static",filename="css/prettyPhoto.css") }}"/>
 
+		<!-- CSS | Google Fonts -->
+{#        <link href='http://fonts.useso.com/css?family=Lato:300,400' rel='stylesheet' type='text/css'>#}
+        <!-- Favicon -->
         <link rel="shortcut icon" type="image/x-icon" href="{{ url_for("static",filename="images/favicon/favicon.ico") }}">
 
-
+        <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <!--[if IE 7]
+                <link rel="stylesheet" type="text/css" href="css/icons/font-awesome-ie7.min.css"/>
+        <![endif]-->
 
         <style>
             @media only screen and (max-width : 991px){
@@ -97,15 +110,16 @@
 
          <div class="image-holder one" id="pic_prof_1" style="display:block">
 
-                <img class="head-image up circle" src="" data-original="{{ url_for("static",filename="images/img/up.png") }}" width="150" height="150" alt="" />
-                <img class="head-image up-left circle" src="" data-original="{{ url_for("static",filename="images/img/upleft.png") }}"  width="150" height="150" alt="" />
-                <img class="head-image left circle" src="" data-original="{{ url_for("static",filename="images/img/left.png") }}"  width="150" height="150" alt="" />
-                <img class="head-image down-left circle" src="" data-original="{{ url_for("static",filename="images/img/downleft.png") }}"  width="150" height="150" alt="" />
-                <img class="head-image down circle" src="" data-original="{{ url_for("static",filename="images/img/down.png") }}"  width="150" height="150" alt="" />
-                <img class="head-image down-right circle" src="" data-original="{{ url_for("static",filename="images/img/downright.png") }}"  width="150" height="150" alt="" />
-                <img class="head-image right circle" src="" data-original="{{ url_for("static",filename="images/img/right.png") }}"  width="150" height="150" alt="" />
-                <img class="head-image up-right circle" src="" data-original="{{ url_for("static",filename="images/img/upright.png") }}"  width="150" height="150" alt="" />
-                <img class="head-image front circle" src="" data-original="{{ url_for("static",filename="images/img/front.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image up circle" src="" data-original="{{ url_for("static",filename="images/404img/up.png") }}" width="150" height="150" alt="" />
+                <img class="head-image up-left circle" src="" data-original="{{ url_for("static",filename="images/404img/upleft.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image left circle" src="" data-original="{{ url_for("static",filename="images/404img/left.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image down-left circle" src="" data-original="{{ url_for("static",filename="images/404img/downleft.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image down circle" src="" data-original="{{ url_for("static",filename="images/404img/down.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image down-right circle" src="" data-original="{{ url_for("static",filename="images/404img/downright.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image right circle" src="" data-original="{{ url_for("static",filename="images/404img/right.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image up-right circle" src="" data-original="{{ url_for("static",filename="images/404img/upright.png") }}"  width="150" height="150" alt="" />
+                <img class="head-image front circle" src="" data-original="{{ url_for("static",filename="images/404img/front.png") }}"  width="150" height="150" alt="" />
+
 
         </div>
 
@@ -180,7 +194,7 @@
 {#                                                <i class="fa fa-briefcase icon_menu"></i>#}
 {#                                            </li>#}
 
-                                            <li name="blogs" class="tabs-blog hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="blog">
+                                            <li class="tabs-blog hi-icon-wrap hi-icon-effect-5 hi-icon-effect-5a" data-tab-name="blog">
                                                <span class="tite-list">blog</span>
                                                 <i class="fa fa-bullhorn icon_menu"></i>
                                             </li>
@@ -527,17 +541,17 @@
 
                                                 <ul>
                                                     <li class="clearfix">
-                                                        <img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
+                                                        <404img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
                                                         <p>“Many desktop publishing packages and web page editors now use Lorem Ipsum as their default will model text, and a search for 'lorem ipsum' hope is uncover many web sites still”</p>
                                                         <span>John Doe, UX Designer</span>
                                                     </li>
                                                     <li class="clearfix">
-                                                        <img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
+                                                        <404img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
                                                         <p>“very nice colleague she always helped me out if i didnt know something editors now use Lorem Ipsum as their default”</p>
                                                         <span>Leia Calvi, UX Designer</span>
                                                     </li>
                                                     <li class="clearfix">
-                                                        <img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
+                                                        <404img src="http://placehold.it/100x100" class="img_reference" width="100" height="100" alt="">
                                                         <p>“old colleague and now close friend, she is really sweet and helpfull packages and web page editors now use Lorem Ipsum as their default will model text”</p>
                                                         <span>Maria Callas, UX Designer</span>
                                                     </li>
@@ -639,24 +653,24 @@
                                                                                                 <div class="carousel-inner">
 
                                                                                                     <div class="item next left">
-                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-1.jpg") }}">
+                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-1.jpg") }}" alt="">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
-                                                                                                            <p></p>
+                                                                                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                                                                                                         </div>
                                                                                                     </div>
 
 
                                                                                                     <div class="item">
-                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-2.jpg") }}">
+                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-2.jpg") }}" alt="">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
-                                                                                                            <p></p>
+                                                                                                            <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
                                                                                                         </div>
                                                                                                     </div>
 
                                                                                                     <div class="item active left">
-                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-3.jpg") }}">
+                                                                                                        <img src="{{ url_for("static",filename="images/blog/blog-3.jpg") }}" alt="">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -713,9 +727,12 @@
                                                                         {% endif %}
                                                                     {% endfor %}
 
-
+<button class="load" >加载更多>></button>
                                                                 </section>
-  <button class="load" >加载更多>></button>
+
+
+
+
 
                                                              {% for item in article %}
                                                                  {% if loop.index % 2 !=0 %}
@@ -744,7 +761,7 @@
                                                                                                 <div class="carousel-inner">
 
                                                                                                     <div class="item active">
-                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-1.jpg") }}">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-1.jpg") }}"  alt="">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -753,7 +770,7 @@
 
 
                                                                                                     <div class="item">
-                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-2.jpg") }}" >
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-2.jpg") }}" alt="">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -761,7 +778,7 @@
                                                                                                     </div>
 
                                                                                                     <div class="item">
-                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-3.jpg") }}">
+                                                                                                        <img src="" data-original="{{ url_for("static",filename="images/blog/blog-3.jpg") }}"  alt="">
                                                                                                         <div class="carousel-caption">
                                                                                                             <h4>First Thumbnail label</h4>
                                                                                                             <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
@@ -991,6 +1008,25 @@
 
                                                             </div>
 
+
+                                                            <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                                                                <div class="modal-dialog modal-sm">
+                                                                    <div class="modal-content">
+                                                                        <div class="modal-header">
+                                                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                                            <h3 class="modal-title h3_modal" style="color: #fff !important;">FlexyVcard - Responsive Vcard Template</h3>
+                                                                        </div>
+                                                                        <div class="modal-body">
+                                                                            <p>FlexyVcard is an impressive and professional online vcard, a beautiful portfolio with sliding effect, resume and contact information with Google map.</p>
+                                                                            <p>It’s simple! Just download and install in a few minutes, you can show your online card to your friend, customer or employer in an interview by phone or tablet. Because FlexyVcard is a responsive template, you can view your website on pc as well as handheld devices. You can also link to your social profiles, display your portfolio in many media format such as image, youtube video, flash...</p>
+                                                                        </div>
+                                                                        <div class="modal-footer">
+                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+
                                                         </div>
                                                     </div>
                                             </div>
@@ -1115,7 +1151,7 @@
 
                 </div><!-- End container -->
 
-            </setion>
+            </section>
             <!-- End Content -->
 
         </div>
@@ -1246,13 +1282,12 @@
 
 
 
-        <!-- jquery | jQuery 1.11.0 -->
-        <!-- Credits: http://jquery.com -->
-        <script type="text/javascript" src="../static/js/jquery.min.js"></script>
-        <script type="text/javascript" src="../static/js/alll.js"></script>
+        <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="{{ url_for("static",filename="js/alll.js") }}"></script>
         <script type="text/javascript" src="../static/js/tuupola-jquery_lazyload/jquery.lazyload.js"></script>
         <script type="text/javascript" src="../static/js/myjs.js"></script>
-        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"  integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous" async></script>
+        
 
          code js for image rotate -->
         <script type="text/javascript">
@@ -1300,33 +1335,28 @@
             }
 
         </script>
-       <script>
-            $(function() {
-                  $("img").lazyload({
-                              placeholder : "../static/images/bg/bg1.png", //用图片提前占位
-                                // placeholder,值为某一图片路径.此图片用来占据将要加载的图片的位置,待图片加载时,占位图则会隐藏
-                              effect: "fadeIn", // 载入使用何种效果
-                                // effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
-                              threshold: 200, // 提前开始加载
-                                // threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉
-                              //event: 'click',  // 事件触发时才加载
-                                // event,值有click(点击),mouseover(鼠标划过),sporty(运动的),foobar(…).可以实现鼠标莫过或点击图片才开始加载,后两个值未测试…
-                              //container: $("#container"),  // 对某容器中的图片实现效果
-                                // container,值为某容器.lazyload默认在拉动浏览器滚动条时生效,这个参数可以让你在拉动某DIV的滚动条时依次加载其中的图片
-                              failurelimit : 10 // 图片排序混乱时
-                                 // failurelimit,值为数字.lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况,failurelimit意在加载N张可见区域外的图片,以避免出现这个问题.
-                            });
-              });
-       </script>
         <script>
-          $(function() {
-             {#$("#blog").scroll(function() {#}
-             {#     console.log()#}
-             {#   });#}
-
-          });
+             $(function() {
+                   $("404img").lazyload({
+                               placeholder : "../static/images/bg/bg1.png", //用图片提前占位
+                                 // placeholder,值为某一图片路径.此图片用来占据将要加载的图片的位置,待图片加载时,占位图则会隐藏
+                               effect: "fadeIn", // 载入使用何种效果
+                                 // effect(特效),值有show(直接显示),fadeIn(淡入),slideDown(下拉)等,常用fadeIn
+                               threshold: 200, // 提前开始加载
+                                 // threshold,值为数字,代表页面高度.如设置为200,表示滚动条在离目标位置还有200的高度时就开始加载图片,可以做到不让用户察觉
+                               //event: 'click',  // 事件触发时才加载
+                                 // event,值有click(点击),mouseover(鼠标划过),sporty(运动的),foobar(…).可以实现鼠标莫过或点击图片才开始加载,后两个值未测试…
+                               //container: $("#container"),  // 对某容器中的图片实现效果
+                                 // container,值为某容器.lazyload默认在拉动浏览器滚动条时生效,这个参数可以让你在拉动某DIV的滚动条时依次加载其中的图片
+                               failurelimit : 10 // 图片排序混乱时
+                                  // failurelimit,值为数字.lazyload默认在找到第一张不在可见区域里的图片时则不再继续加载,但当HTML容器混乱的时候可能出现可见区域内图片并没加载出来的情况,failurelimit意在加载N张可见区域外的图片,以避免出现这个问题.
+                             });
+               });
         </script>
 
+        <!--[if lt IE 9]
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        [endif]-->
     </body>
 </html>
 <script>
@@ -1411,7 +1441,7 @@
                                        $('[name="replys"]').remove()
                                        var da = data['content']
                                        var html ='<div class="comment sub">'+
-                                                ' <img src="'+da.pic+'" alt="img" width="100" height="100">'+
+                                                ' <404img src="'+da.pic+'" alt="404img" width="100" height="100">'+
                                                 ' <div class="text">'+
                                                 ' <div class="name">'+da.nickname+' <a class="reply" abc="'+da.id+'" href="#">回 复</a></div>'+
                                                 '<div class="date">'+da.time+'</div>'+da.content+''+
@@ -1488,7 +1518,7 @@
                    if(result['code'] ==200){
                       var data = result["content"]
                       var  html = '<div class="comment">'+
-                                   '<img src="'+data['pic']+'" alt="img" width="100" height="100">'+
+                                   '<404img src="'+data['pic']+'" alt="404img" width="100" height="100">'+
                                    '<div class="text">'+
                                    '<div class="name">' + data['nickname'] + ' </div>'+
                                    '<div class="date">' + data['time'] + '</div>'+
@@ -1537,17 +1567,7 @@ function wordStatic(input) {
         }
     }
 
-{##}
-{# function test()#}
-{#{#}
-{#     var temp = document.getElementsByName("message");   //输入邮箱的文本框#}
-{#     //对电子邮件的验证#}
-{#     var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;#}
-{#    if(!myreg.test(temp.value)){#}
-        {#alert('提示\n\n请输入有效的E_mail！');#}
-{#        myreg.focus();#}
-{#        return false;#}
-{#    }#}
+
 
 
 

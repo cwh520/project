@@ -8,7 +8,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     data = ArticleModel().GetAll()
-    return render_template("profile.html",article=data)
+    return render_template("profile.html", article=data)
+
 
 @app.route('/load', methods=['GET','POST','DELETE', 'PUT'])
 def load():
@@ -32,14 +33,13 @@ def load():
         pass
     if request.method == "PUT":
         pass
-
-
+        
 @app.route('/getcomment', methods=['GET','POST','DELETE', 'PUT'])
 def getcomment():
     if request.method == "GET":
         pass
     if request.method == "POST":
-        id = request.json.get('id')
+        id = request.json.get("id")
         data = ArticleModel().Getcomment(id)
         return data
     if request.method == "DELETE":
@@ -53,13 +53,13 @@ def comments():
       pass
     if request.method == "POST":
         id = request.json.get('id')
-
+        
         name = request.json.get('name')
-
+        
         email = request.json.get('email')
-
+        
         message = request.json.get('message')
-
+        
         data = ArticleModel().Addcomment(id, name, email, message)
         return data
 
@@ -75,13 +75,13 @@ def replys():
         pass
     if request.method == "POST":
         id = request.json.get('id')
-
+        
         name = request.json.get('name')
-
+      
         email = request.json.get('email')
-
+       
         message = request.json.get('message')
-
+        
         data = ArticleModel().Addreply(id, name, email, message)
         return data
     if request.method == "DELETE":
@@ -89,9 +89,13 @@ def replys():
     if request.method == "PUT":
         pass
 
+@app.errorhandler(500)
+def page_not_found(e):
+    return render_template("500.html"),500
 
-
-
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template("404.html"),404
 
 if __name__ == '__main__':
-    app.run(port=6001)
+    app.run()
